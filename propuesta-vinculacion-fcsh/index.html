@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Propuesta de organización de documentos de Vinculación – FCSH</title>
+<meta name="description" content="Propuesta de organización de los documentos de Vinculación con la Sociedad – Subdecanato FCSH, UCE. David Sango, prácticas 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1836;--navy2:#13285a;--blue:#2457c5;--sky:#5aa2ff;--gold:#f5b82e;--red:#e04f5f;--green:#1fa463;--amber:#f08c00;--ink:#14213d;--muted:#5b6782;--bg:#f4f6fb;--card:#fff;--line:#e3e8f2;--r:18px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;font-family:"Plus Jakarta Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.mono{font-family:"JetBrains Mono",ui-monospace,Consolas,monospace}
+/* NAV */
+nav{position:sticky;top:0;z-index:50;background:rgba(10,24,54,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+nav .in{max-width:1200px;margin:auto;display:flex;align-items:center;gap:6px;padding:10px 18px;overflow-x:auto;scrollbar-width:none}
+nav .in::-webkit-scrollbar{display:none}
+nav .brand{color:#fff;font-weight:800;margin-right:10px;white-space:nowrap;letter-spacing:.3px}
+nav .brand b{color:var(--gold)}
+nav a{color:#c9d5ef;text-decoration:none;font-size:14px;font-weight:600;padding:7px 12px;border-radius:999px;white-space:nowrap;transition:.2s}
+nav a:hover,nav a.on{background:rgba(255,255,255,.12);color:#fff}
+/* HERO */
+.hero{position:relative;overflow:hidden;color:#fff;background:radial-gradient(1200px 600px at 85% -10%,#2b5fd0 0%,transparent 60%),radial-gradient(900px 500px at -10% 110%,#7a2a55 0%,transparent 55%),var(--navy);min-height:88vh;display:flex;align-items:center}
+.hero .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%)}
+.hero .in{position:relative;max-width:1200px;margin:auto;padding:70px 22px;display:grid;grid-template-columns:1.25fr .9fr;gap:40px;align-items:center}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);background:rgba(245,184,46,.12);border:1px solid rgba(245,184,46,.35);padding:6px 12px;border-radius:999px}
+.hero h1{font-size:clamp(34px,5.4vw,66px);line-height:1.04;margin:18px 0 16px;font-weight:800;letter-spacing:-1.5px}
+.hero h1 span{background:linear-gradient(90deg,#fff,#9cc3ff 60%,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{font-size:clamp(16px,1.7vw,20px);color:#c9d5ef;max-width:600px;margin:0 0 26px}
+.who{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#ff7a59);display:grid;place-items:center;font-weight:800;color:var(--navy);font-size:19px}
+.who b{display:block;font-size:17px}.who small{color:#9fb0d6;font-size:14px}
+.btns{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 20px;border-radius:12px;font-weight:700;text-decoration:none;font-size:15px;transition:.2s;border:0;cursor:pointer;font-family:inherit}
+.btn.pri{background:var(--gold);color:var(--navy)}.btn.pri:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(245,184,46,.35)}
+.btn.sec{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2)}.btn.sec:hover{background:rgba(255,255,255,.16)}
+.hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:24px;backdrop-filter:blur(6px);box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.hero-card .mini{font-family:"JetBrains Mono",monospace;font-size:13.5px;color:#dbe6ff;line-height:1.9}
+.hero-card .mini .f{color:var(--gold)}.hero-card .mini .d{color:#8fb4ff}.hero-card .mini .g{color:#7d8db3}
+.safe{margin-top:16px;display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:#bfe9d2;background:rgba(31,164,99,.14);border:1px solid rgba(31,164,99,.35);padding:10px 12px;border-radius:12px}
+/* SECTIONS */
+section{padding:84px 22px}
+section .in{max-width:1200px;margin:auto}
+.kicker{font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--blue)}
+h2{font-size:clamp(28px,3.6vw,44px);line-height:1.1;margin:8px 0 10px;letter-spacing:-1px;font-weight:800}
+.sub{color:var(--muted);font-size:17px;max-width:720px;margin:0 0 36px}
+.dark{background:var(--navy);color:#fff}.dark .sub{color:#a9b8da}.dark .kicker{color:var(--gold)}
+.white{background:#fff}
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;position:relative;overflow:hidden}
+.stat .num{font-size:clamp(40px,5vw,58px);font-weight:800;letter-spacing:-2px;line-height:1}
+.stat .lbl{color:var(--muted);font-weight:600;margin-top:8px;font-size:15px}
+.stat::after{content:"";position:absolute;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;opacity:.12;background:var(--c,var(--blue))}
+.stat .num{color:var(--c,var(--ink))}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px}
+.panel h3{margin:0 0 16px;font-size:18px}
+.bar{display:flex;height:46px;border-radius:12px;overflow:hidden;margin-bottom:14px}
+.bar div{display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;transition:flex 1.2s cubic-bezier(.2,.8,.2,1);min-width:0}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:6px;vertical-align:-1px}
+.donutwrap{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.donut{width:190px;height:190px;flex:none}
+.donut text{font-family:inherit}
+.types li{list-style:none;display:flex;align-items:center;gap:8px;font-size:15px;padding:3px 0;cursor:default}
+.types{padding:0;margin:0;flex:1;min-width:180px}.types b{margin-left:auto;font-variant-numeric:tabular-nums}
+.types li.hl{font-weight:700}
+.note{font-size:13px;color:var(--muted);margin-top:12px}
+/* DOC CARDS */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-top:40px}
+.dc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;transition:.25s;cursor:pointer;position:relative}
+.dc:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(20,33,61,.1);border-color:#c8d4ee}
+.dc .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--bgc,#eaf1ff);color:var(--fc,var(--blue));margin-bottom:12px}
+.dc h4{margin:0 0 4px;font-size:16.5px}.dc p{margin:0;color:var(--muted);font-size:14.5px}
+.dc .ex{max-height:0;overflow:hidden;transition:max-height .35s;font-size:12.5px;color:#46557a}
+.dc.open .ex{max-height:160px;margin-top:10px}
+.dc .ex code{display:block;background:#f2f5fb;border-radius:8px;padding:6px 8px;margin-top:4px;word-break:break-all;font-family:"JetBrains Mono",monospace;font-size:11.5px}
+.dc .plus{position:absolute;top:14px;right:14px;color:#9aa8c6;font-weight:800;transition:.25s}.dc.open .plus{transform:rotate(45deg)}
+/* TREE */
+.levels{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:22px}
+.lv{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:14px;position:relative}
+.lv .n{font-size:12px;color:var(--gold);font-weight:800;letter-spacing:1px}
+.lv b{display:block;font-size:16px;margin:2px 0}.lv small{color:#a9b8da;font-size:13px}
+.lv:not(:last-child)::after{content:"›";position:absolute;right:-10px;top:50%;transform:translateY(-50%);color:var(--gold);font-size:22px;font-weight:800;z-index:2}
+.treebox{background:#0e2148;border:1px solid rgba(255,255,255,.12);border-radius:20px;overflow:hidden}
+.tools{display:flex;gap:10px;flex-wrap:wrap;padding:14px;border-bottom:1px solid rgba(255,255,255,.1);background:#0c1c3f;align-items:center}
+.tools input{flex:1;min-width:200px;background:#0a1836;border:1px solid rgba(255,255,255,.18);color:#fff;border-radius:10px;padding:11px 14px;font:inherit;font-size:15px;outline:none}
+.tools input:focus{border-color:var(--sky)}
+.tools button{background:rgba(255,255,255,.08);color:#dfe8ff;border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:10px 14px;font:inherit;font-weight:600;font-size:14px;cursor:pointer}
+.tools button:hover{background:rgba(255,255,255,.16)}
+.tools .chip{font-size:13px;color:#a9b8da}
+#tree{padding:12px 8px 18px;max-height:72vh;overflow:auto;font-size:15px}
+.t ul{list-style:none;margin:0;padding-left:22px;border-left:1px dashed rgba(255,255,255,.14);margin-left:12px}
+.t>ul{border:0;padding-left:0;margin-left:0}
+.row{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:9px;cursor:pointer;user-select:none;color:#dfe8ff}
+.row:hover{background:rgba(255,255,255,.07)}
+.row .car{width:14px;color:#7f93c2;transition:transform .2s;flex:none;font-size:12px}
+li.open>.row .car{transform:rotate(90deg)}
+.row .fi{flex:none}
+.row .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.row.dir .nm{font-weight:700}
+.row .k{margin-left:auto;font-size:12px;background:rgba(90,162,255,.16);color:#9cc3ff;border-radius:999px;padding:2px 9px;flex:none;font-weight:700}
+.row .k.zero{background:rgba(240,140,0,.18);color:#ffc078}
+.row .warn{flex:none;font-size:11px;font-weight:800;background:var(--amber);color:#1a1200;border-radius:6px;padding:1px 6px}
+.row .dup{flex:none;font-size:11px;font-weight:800;background:#5b6782;color:#fff;border-radius:6px;padding:1px 6px}
+.row.file .nm{color:#c2cfee;font-weight:500}
+li>ul{display:none}li.open>ul{display:block}
+.nt{font-size:12.5px;color:#ffd8a8;margin:0 0 4px 52px;display:none;background:rgba(240,140,0,.1);border-left:3px solid var(--amber);padding:5px 9px;border-radius:0 8px 8px 0}
+li.shownote>.nt{display:block}
+.desc{font-size:12.5px;color:#8fa3cf;margin-left:8px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+mark{background:var(--gold);color:var(--navy);border-radius:3px;padding:0 2px}
+.hide{display:none!important}
+.legend2{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:#a9b8da;margin-top:14px}
+/* PROJECT ANATOMY */
+.anat{display:grid;grid-template-columns:1fr 1.3fr;gap:18px;margin-top:22px}
+.proj{background:linear-gradient(160deg,#16306a,#0e2148);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:22px}
+.proj .pn{font-family:"JetBrains Mono",monospace;font-size:14px;word-break:break-all;color:#fff;background:rgba(0,0,0,.25);padding:10px 12px;border-radius:10px}
+.proj .pn .a{color:var(--gold)}.proj .pn .b{color:#9cc3ff}
+.stage{display:flex;gap:12px;align-items:flex-start;margin-top:14px}
+.stage .s{flex:none;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-weight:800;color:var(--navy)}
+.stage b{display:block}.stage small{color:#a9b8da;font-size:13.5px}
+/* NAMING */
+.nameline{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:clamp(15px,2vw,22px);margin:10px 0 24px}
+.seg{padding:10px 14px;border-radius:12px;font-weight:600;color:#fff;position:relative}
+.seg small{position:absolute;left:0;right:0;top:100%;margin-top:6px;font-family:"Plus Jakarta Sans",sans-serif;font-size:12px;color:var(--muted);text-align:center;font-weight:600}
+.sep{color:#9aa8c6;font-weight:800}
+.gen{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
+.gen label{font-size:13px;font-weight:700;color:var(--muted);display:block;margin-bottom:6px}
+.gen select{width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);font:inherit;font-size:15px;background:#fff;color:var(--ink)}
+.out{margin-top:16px;background:var(--navy);color:#fff;border-radius:16px;padding:18px 20px;font-family:"JetBrains Mono",monospace;font-size:clamp(15px,2.1vw,22px);word-break:break-all;display:flex;align-items:center;gap:14px}
+.out .ok{flex:none;width:34px;height:34px;border-radius:50%;background:var(--green);display:grid;place-items:center}
+.ba{display:grid;gap:12px;margin-top:30px}
+.bai{display:grid;grid-template-columns:1fr 40px 1fr;gap:10px;align-items:center}
+.bai .x,.bai .y{border-radius:12px;padding:12px 14px;font-family:"JetBrains Mono",monospace;font-size:13px;word-break:break-all}
+.bai .x{background:#fff1f2;color:#9f1239;border:1px solid #fecdd3;text-decoration:line-through;text-decoration-color:rgba(159,18,57,.35)}
+.bai .y{background:#ecfdf3;color:#065f46;border:1px solid #a7f3d0;font-weight:600}
+.bai .ar{text-align:center;font-size:22px;color:var(--blue);font-weight:800}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+.rule{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:14.5px}
+.rule b{display:block;margin-bottom:2px}
+/* ALERTS */
+.alerts{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.al{background:#fff;border-radius:18px;padding:22px;border:1px solid var(--line);border-top:5px solid var(--c);cursor:pointer;transition:.25s;position:relative}
+.al:hover{box-shadow:0 16px 40px rgba(20,33,61,.12);transform:translateY(-3px)}
+.al .top{display:flex;gap:12px;align-items:center;margin-bottom:10px}
+.al .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--bgc);color:var(--c);flex:none}
+.al .big{font-size:38px;font-weight:800;color:var(--c);letter-spacing:-1px;line-height:1}
+.al h4{margin:0;font-size:17.5px;line-height:1.25}
+.al p{margin:6px 0 0;color:var(--muted);font-size:15px}
+.al .more{max-height:0;overflow:hidden;transition:max-height .4s;font-size:14px;color:#3b4968}
+.al.open .more{max-height:420px;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
+.al .hint{font-size:12.5px;color:var(--c);font-weight:700;margin-top:10px}
+.al.open .hint{display:none}
+.al .more ul{margin:6px 0;padding-left:18px}
+.code-swap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+.pill{border-radius:10px;padding:8px 10px;font-size:13px;font-weight:700;line-height:1.25}
+.pill small{display:block;font-weight:600;font-size:11.5px;opacity:.8}
+.qline{display:grid;grid-template-columns:repeat(9,1fr);gap:4px;margin-top:14px}
+.q{height:44px;border-radius:7px;display:flex;align-items:flex-end;justify-content:center;font-size:10px;font-weight:700;color:#fff;padding-bottom:3px;text-align:center;line-height:1.05}
+.q.y{background:var(--green)}.q.n{background:#f3c4ca;color:#9f1239}
+.vs{display:flex;gap:8px;margin-top:12px}
+.vs div{flex:1;border-radius:10px;padding:8px;text-align:center;font-size:12px;font-weight:600}
+.vs b{display:block;font-size:24px;font-weight:800}
+/* TABLE */
+.tablewrap{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:auto;box-shadow:0 10px 30px rgba(20,33,61,.06)}
+table{border-collapse:separate;border-spacing:0;width:100%;min-width:980px;font-size:14.5px}
+th,td{padding:11px 10px;border-bottom:1px solid var(--line);text-align:center;white-space:nowrap}
+th{background:#0a1836;color:#fff;font-size:12.5px;font-weight:700;letter-spacing:.3px;position:sticky;top:0;white-space:normal;line-height:1.2}
+th:first-child,td:first-child{text-align:left;position:sticky;left:0;z-index:1}
+th:first-child{z-index:3}
+td:first-child{background:#fff;white-space:normal;min-width:230px}
+tr:hover td{background:#f6f9ff}
+td .pc{display:block;font-weight:700}td .pm{font-size:12px;color:var(--muted)}
+.st{display:inline-block;font-size:11px;font-weight:800;border-radius:999px;padding:3px 9px}
+.st.v{background:#e7f6ee;color:#0f7a45}.st.c{background:#eef0f5;color:#4a5570}.st.p{background:#fff4e0;color:#a35b00}.st.n{background:#e9f0ff;color:#2457c5}
+.cell{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:9px;font-weight:800;font-size:15px;position:relative}
+.cell.y{background:#e7f6ee;color:var(--green)}.cell.n{background:#fdecee;color:var(--red)}.cell.w{background:#fff4e0;color:var(--amber)}.cell.na{color:#b4bdd0}
+.cell[data-t]:hover::after{content:attr(data-t);position:absolute;bottom:115%;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;font-size:12px;font-weight:600;padding:6px 9px;border-radius:8px;white-space:normal;width:220px;z-index:5;text-align:left;line-height:1.35}
+.per{display:inline-block;font-size:11.5px;background:#eef3ff;color:#2457c5;border-radius:6px;padding:1px 6px;margin:1px;font-weight:700}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.filters button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font:inherit;font-size:14px;font-weight:600;cursor:pointer;color:var(--ink)}
+.filters button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.lab{display:inline-flex;gap:8px;align-items:center;background:#fff4e0;color:#8a4b00;border:1px solid #ffd8a8;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700;margin-bottom:14px}
+.keyrow{display:flex;gap:16px;flex-wrap:wrap;font-size:13.5px;color:var(--muted);margin-top:12px;align-items:center}
+.keyrow .cell{width:24px;height:24px;font-size:13px;margin-right:4px}
+.swipe{display:none;font-size:13px;color:var(--muted);margin-bottom:8px;font-weight:600}@media (max-width:900px){.swipe{display:block}}
+/* ROADMAP */
+.road{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;position:relative;margin-top:10px}
+.road::before{content:"";position:absolute;top:44px;left:12%;right:12%;height:4px;background:linear-gradient(90deg,var(--gold),var(--sky),var(--green));border-radius:4px;opacity:.6}
+.step{position:relative;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:24px;text-align:center}
+.step .b{width:62px;height:62px;border-radius:50%;margin:-2px auto 14px;display:grid;place-items:center;font-size:24px;font-weight:800;color:var(--navy);position:relative;z-index:2;box-shadow:0 0 0 8px var(--navy)}
+.step h4{margin:0 0 6px;font-size:19px}.step p{margin:0;color:#b6c4e4;font-size:15px}
+.step .when{display:inline-block;margin-top:12px;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
+.app{margin-top:30px;display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:center}
+.phone{width:min(300px,100%);margin:auto;background:#fff;border-radius:34px;padding:14px;box-shadow:0 30px 80px rgba(0,0,0,.45);color:var(--ink);border:8px solid #1d2b4f}
+.phone .hd{display:flex;justify-content:space-between;align-items:center;font-weight:800;font-size:15px;padding:6px 6px 12px}
+.phone .it{display:flex;align-items:center;gap:10px;padding:10px;border-radius:12px;background:#f4f6fb;margin-bottom:8px;font-size:13px}
+.phone .it b{display:block;font-size:13.5px}.phone .it small{color:var(--muted)}
+.phone .it .s{margin-left:auto;font-size:11px;font-weight:800;border-radius:999px;padding:3px 8px}
+.phone .up{margin-top:8px;text-align:center;background:var(--blue);color:#fff;border-radius:12px;padding:11px;font-weight:700;font-size:14px}
+.feat{display:grid;gap:12px}
+.feat div{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:14px}
+.feat i{font-style:normal;flex:none;width:36px;height:36px;border-radius:10px;background:rgba(245,184,46,.15);color:var(--gold);display:grid;place-items:center}
+.feat b{display:block}.feat small{color:#a9b8da;font-size:14px}
+.need{margin-top:30px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.need span{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:8px 14px;font-size:14px;color:#dfe8ff}
+footer{background:#071127;color:#7f93c2;text-align:center;padding:28px 20px;font-size:13.5px}
+footer b{color:#c9d5ef}
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}.rv.shown{opacity:1;transform:none}
+@media (max-width:900px){
+ .hero .in{grid-template-columns:1fr;padding:48px 18px}.hero{min-height:auto}
+ .stats{grid-template-columns:1fr 1fr}.two,.anat,.app{grid-template-columns:1fr}
+ .levels{grid-template-columns:1fr 1fr}.lv::after{display:none}
+ .gen{grid-template-columns:1fr 1fr}.rules{grid-template-columns:1fr}
+ .road{grid-template-columns:1fr}.road::before{display:none}
+ .bai{grid-template-columns:1fr}.bai .ar{transform:rotate(90deg)}
+ section{padding:60px 16px}
+ .desc{display:none}
+}
+@media (max-width:520px){.stats{grid-template-columns:1fr 1fr}.stat{padding:16px}.gen{grid-template-columns:1fr}#tree{font-size:14px}.t ul{padding-left:14px;margin-left:8px}}
+@media print{nav{display:none}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<nav><div class="in">
+ <span class="brand">Vinculación <b>FCSH</b></span>
+ <a href="#inicio">Inicio</a><a href="#hallazgos">Lo que encontré</a><a href="#estructura">Estructura</a><a href="#nombres">Nombres</a><a href="#falta">Lo que falta</a><a href="#excel">Excel maestro</a><a href="#siguiente">Siguiente paso</a>
+</div></nav>
+
+<header class="hero" id="inicio"><div class="grid"></div><div class="in">
+ <div>
+  <span class="tag">Subdecanato FCSH · UCE · Prácticas 2026</span>
+  <h1><span>Propuesta de organización de documentos de Vinculación</span></h1>
+  <p class="lead">Revisé 343 archivos de Google Drive, SharePoint y una carpeta local, los ordené en una sola estructura y encontré qué falta. Esta es la propuesta.</p>
+  <div class="who"><div class="avatar">DS</div><div><b>David Sango</b><small>Computación · Prácticas preprofesionales · Vinculación con la sociedad</small></div></div>
+  <div class="btns"><a class="btn pri" href="#estructura">Ver la estructura &rarr;</a><a class="btn sec" href="#falta">Lo que falta</a></div>
+ </div>
+ <div class="hero-card rv">
+  <div class="mini">
+   <div class="d">📁 SUBDECANATO_FCSH/</div>
+   <div>&nbsp;├─ <span class="d">01_VINCULACION_CON_LA_SOCIEDAD/</span></div>
+   <div>&nbsp;│&nbsp;&nbsp;└─ <span class="d">01_Vigentes/Trabajo_Social/</span></div>
+   <div>&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="f">Barrios_DMQ_2024-2029__26-26_P9SOC05/</span></div>
+   <div>&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─ 01_Diseno_y_aprobacion</div>
+   <div>&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─ 02_Informes_trimestrales</div>
+   <div>&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ 03_Cierre</div>
+   <div>&nbsp;└─ <span class="g">99_DUPLICADOS_POR_REVISAR/</span></div>
+  </div>
+  <div class="safe"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" style="flex:none;margin-top:1px"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg><span>Es una propuesta: <b>no se movió, borró ni cambió</b> ningún archivo en Drive ni en SharePoint.</span></div>
+ </div>
+</div></header>
+
+<!-- HALLAZGOS -->
+<section id="hallazgos"><div class="in">
+ <div class="kicker">01 · Lo que encontré</div>
+ <h2>343 archivos revisados, uno por uno</h2>
+ <p class="sub">Tres fuentes, muchos formatos y muchas copias. Cada archivo tiene ya un lugar propuesto.</p>
+ <div class="stats">
+  <div class="stat rv" style="--c:var(--blue)"><div class="num" data-count="343">0</div><div class="lbl">archivos revisados</div></div>
+  <div class="stat rv" style="--c:#7048e8"><div class="num" data-count="3">0</div><div class="lbl">fuentes: Drive, SharePoint y carpeta local</div></div>
+  <div class="stat rv" style="--c:var(--amber)"><div class="num" data-count="46">0</div><div class="lbl">duplicados o versiones viejas &rarr; «por revisar» (no se borran)</div></div>
+  <div class="stat rv" style="--c:var(--green)"><div class="num" data-count="28">0</div><div class="lbl">proyectos comunitarios con carpeta propia</div></div>
+ </div>
+ <div class="two">
+  <div class="panel rv"><h3>¿De dónde vienen?</h3>
+   <div class="bar" id="srcbar">
+    <div style="flex:0;background:#2457c5" data-f="227">227</div>
+    <div style="flex:0;background:#5aa2ff" data-f="100">100</div>
+    <div style="flex:0;background:#f5b82e;color:#0a1836" data-f="16">16</div>
+   </div>
+   <div class="legend"><span><i style="background:#2457c5"></i>SharePoint (carga horaria 23-23, 23-24, 24-25)</span><span><i style="background:#5aa2ff"></i>Google Drive</span><span><i style="background:#f5b82e"></i>Carpeta local</span></div>
+   <h3 style="margin-top:26px">¿A dónde van?</h3>
+   <div class="bar" id="dstbar" style="height:38px">
+    <div style="flex:0;background:#0a1836;font-size:13px" data-f="253">253</div>
+    <div style="flex:0;background:#8b95ad;font-size:13px" data-f="46">46</div>
+    <div style="flex:0;background:#1fa463;font-size:13px" data-f="20">20</div>
+    <div style="flex:0;background:#7048e8;font-size:13px" data-f="13">13</div>
+    <div style="flex:0;background:#e04f5f;font-size:12px" data-f="11"></div>
+   </div>
+   <div class="legend"><span><i style="background:#0a1836"></i>Vinculación (253)</span><span><i style="background:#8b95ad"></i>Duplicados por revisar (46)</span><span><i style="background:#1fa463"></i>Bienestar (20)</span><span><i style="background:#7048e8"></i>Gestión (13)</span><span><i style="background:#e04f5f"></i>Normativa y otros (11)</span></div>
+  </div>
+  <div class="panel rv"><h3>¿Qué tipo de archivo?</h3>
+   <div class="donutwrap"><svg class="donut" id="donut" viewBox="0 0 42 42"></svg><ul class="types" id="types"></ul></div>
+   <div class="note">Conteo por extensión de los 343 archivos. Excel incluye .xlsx, .xls y .xlsm; Word incluye .docx y .doc.</div>
+  </div>
+ </div>
+
+ <h3 style="margin:56px 0 0;font-size:24px">¿Qué documentos hay? <span style="font-weight:500;color:var(--muted);font-size:16px">— toca una tarjeta para ver un ejemplo real</span></h3>
+ <div class="cards" id="doccards"></div>
+</div></section>
+
+<!-- ESTRUCTURA -->
+<section id="estructura" class="dark"><div class="in">
+ <div class="kicker">02 · La estructura propuesta</div>
+ <h2>Un solo árbol, del área al documento</h2>
+ <p class="sub">Cada nivel responde una pregunta. Toca las carpetas para abrirlas; los números dicen cuántos archivos reales hay dentro.</p>
+ <div class="levels">
+  <div class="lv rv"><div class="n">NIVEL 1</div><b>Dominio</b><small>Vinculación, Bienestar, Gestión…</small></div>
+  <div class="lv rv"><div class="n">NIVEL 2</div><b>Área</b><small>Proyectos, prácticas, educación continua, convenios</small></div>
+  <div class="lv rv"><div class="n">NIVEL 3</div><b>Estado o periodo</b><small>Vigente, nuevo, cerrado, por confirmar</small></div>
+  <div class="lv rv"><div class="n">NIVEL 4</div><b>Carrera</b><small>Trabajo Social, Sociología, C. Políticas, Historia</small></div>
+  <div class="lv rv"><div class="n">NIVEL 5</div><b>Proyecto</b><small>Por nombre + código de cada periodo</small></div>
+ </div>
+ <div class="treebox rv">
+  <div class="tools">
+   <input id="q" type="search" placeholder="Buscar: Kitu Kara, cronograma, P9SOC05, convenio…" aria-label="Buscar en el árbol">
+   <button id="exp1">Ver proyectos vigentes</button><button id="expall">Abrir todo</button><button id="colall">Cerrar todo</button>
+   <span class="chip" id="qinfo"></span>
+  </div>
+  <div id="tree" class="t"></div>
+ </div>
+ <div class="legend2"><span><b style="color:#9cc3ff">12</b> = archivos dentro</span><span><span class="row" style="display:inline;padding:0"><span class="warn">!</span></span> = observación (toca el archivo para leerla)</span><span><span class="dup" style="background:#5b6782;color:#fff;border-radius:6px;padding:1px 6px;font-size:11px;font-weight:800">COPIA</span> = duplicado o versión anterior</span><span><b style="color:#ffc078">vacía</b> = carpeta pedida o que debería tener algo</span></div>
+
+ <div class="anat">
+  <div class="proj rv">
+   <div style="font-weight:800;margin-bottom:10px;color:var(--gold);font-size:13px;letter-spacing:1px">ANATOMÍA DE UN PROYECTO</div>
+   <div class="pn"><span class="a">Barrios_DMQ_2024-2029</span>__<span class="b">26-26_P9SOC05</span></div>
+   <div class="stage"><div class="s" style="background:var(--gold)">1</div><div><b>01_Diseno_y_aprobacion / periodo</b><small>Planificación, cronograma, línea base, presupuesto, respaldo legal y aprobación de cada periodo.</small></div></div>
+   <div class="stage"><div class="s" style="background:var(--sky)">2</div><div><b>02_Informes_trimestrales / trimestre</b><small>Informe de avance + registro de participantes firmados.</small></div></div>
+   <div class="stage"><div class="s" style="background:#4ade80">3</div><div><b>03_Cierre</b><small>Acta de cierre, informe final y conformidad de la comunidad.</small></div></div>
+  </div>
+  <div class="proj rv" style="background:linear-gradient(160deg,#3a1d3f,#0e2148)">
+   <div style="font-weight:800;margin-bottom:10px;color:var(--gold);font-size:13px;letter-spacing:1px">¿POR QUÉ POR NOMBRE Y NO POR CÓDIGO?</div>
+   <p style="margin:0 0 14px;color:#dfe8ff;font-size:16px">Porque <b>el mismo código cambia de proyecto</b> entre periodos:</p>
+   <div class="code-swap">
+    <div class="pill" style="background:#fff;color:var(--navy)"><small>24-25</small>P9SOC05 = Kitu Kara tejido comunitario</div>
+    <div style="font-size:22px;color:var(--gold);font-weight:800">&rarr;</div>
+    <div class="pill" style="background:var(--gold);color:var(--navy)"><small>26-26</small>P9SOC05 = Barrios DMQ</div>
+   </div>
+   <p style="margin:16px 0 0;color:#b6c4e4;font-size:14.5px">Pasa también con P2SOC02, P2SOC03, P2SOC04 y P9SOC04. El nombre del proyecto es lo único estable; por eso va primero, y cada código va con su periodo. Tampoco se usa el nombre del docente, porque cambia.</p>
+  </div>
+ </div>
+</div></section>
+
+<!-- NOMBRES -->
+<section id="nombres" class="white"><div class="in">
+ <div class="kicker">03 · Regla de nombres</div>
+ <h2>Un nombre que se entiende sin abrir el archivo</h2>
+ <p class="sub">Para los archivos nuevos: cuatro partes, siempre en el mismo orden.</p>
+ <div class="nameline rv">
+  <span class="seg" style="background:#2457c5">BarriosDMQ<small>Proyecto</small></span><span class="sep">_</span>
+  <span class="seg" style="background:#7048e8">InformeTrimestral<small>Documento</small></span><span class="sep">_</span>
+  <span class="seg" style="background:#1fa463">2026-jul-sep<small>Periodo</small></span><span class="sep">_</span>
+  <span class="seg" style="background:#f08c00">v1<small>Versión</small></span><span class="sep">.pdf</span>
+ </div>
+ <div class="gen rv">
+  <div><label for="gp">Proyecto</label><select id="gp"></select></div>
+  <div><label for="gd">Documento</label><select id="gd"></select></div>
+  <div><label for="gt">Periodo</label><select id="gt"></select></div>
+  <div><label for="gv">Versión</label><select id="gv"><option value="v1">v1</option><option value="v2">v2</option><option value="v1_firmado">v1 final firmada</option></select></div>
+ </div>
+ <div class="out rv"><span class="ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg></span><span id="fname"></span></div>
+ <h3 style="margin:44px 0 0;font-size:20px">Antes y después (archivos reales)</h3>
+ <div class="ba rv">
+  <div class="bai"><div class="x">pofa Myriam PnaherreraFORMATO_INFORME_AVANCE_TRIMESTRAL_FINAL_periodo_26-26 julio seotiuembre-signed-signed.pdf</div><div class="ar">&rarr;</div><div class="y">BarriosDMQ_InformeTrimestral_2026-jul-sep_v1_firmado.pdf</div></div>
+  <div class="bai"><div class="x">PROF CRISTIAN ARTEAGA_INFORME_AVANCE_TRIMESTRAL_FINAL_julio septiembre (1)-signed-signed-signed-signed.pdf</div><div class="ar">&rarr;</div><div class="y">SeguridadDigital_InformeTrimestral_2026-jul-sep_v1_firmado.pdf</div></div>
+  <div class="bai"><div class="x">CRONOGRMA 2024-2025.pdf</div><div class="ar">&rarr;</div><div class="y">ColeccionFilosofica_Cronograma_24-25_v1.pdf</div></div>
+ </div>
+ <div class="rules">
+  <div class="rule rv"><b>«_firmado» solo al final</b>Solo la versión final firmada lo lleva. Nada de «-signed-signed-signed».</div>
+  <div class="rule rv"><b>El código va dentro</b>El código del periodo se escribe dentro del documento y en la carpeta, no se adivina.</div>
+  <div class="rule rv"><b>Una carpeta por proyecto</b>Nunca se reutiliza una carpeta para dos proyectos que tuvieron el mismo código.</div>
+ </div>
+</div></section>
+
+<!-- FALTA -->
+<section id="falta"><div class="in">
+ <div class="kicker" style="color:var(--red)">04 · Lo que falta</div>
+ <h2>Lo que encontré que falta o no cuadra</h2>
+ <p class="sub">Toca cada tarjeta para ver el detalle. Todo sale de los archivos revisados.</p>
+ <div class="alerts" id="alerts"></div>
+</div></section>
+
+<!-- EXCEL -->
+<section id="excel" class="white"><div class="in">
+ <div class="kicker">05 · Excel maestro</div>
+ <h2>Una fila por proyecto: qué hay y qué falta</h2>
+ <p class="sub">Así se vería el Excel maestro. Con una mirada se sabe qué documento le falta a cada proyecto.</p>
+ <div class="lab"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16h.01"/></svg>Ejemplo con datos reales parciales: 12 de los 28 proyectos</div>
+ <div class="filters" id="filters"><button class="on" data-f="all">Todos</button><button data-f="v">Vigentes</button><button data-f="c">Cerrados</button><button data-f="p">Estado por confirmar</button><button data-f="miss">Solo con faltantes</button></div>
+ <div class="swipe">Desliza la tabla hacia la derecha &rarr;</div><div class="tablewrap"><table id="mt"><thead><tr><th>Proyecto</th><th>Estado</th><th>Periodos con diseño</th><th>Planificación</th><th>Cronograma</th><th>Línea base</th><th>Respaldo legal</th><th>Convenio</th><th>Informe jul-sep 2024</th><th>Informe jul-sep 2026</th><th>Cierre</th></tr></thead><tbody></tbody></table></div>
+ <div class="keyrow"><span><span class="cell y">✓</span>se encontró</span><span><span class="cell n">✕</span>no se encontró entre los 343 archivos</span><span><span class="cell w">!</span>hay, con observación (pasa el cursor)</span><span><span class="cell na">—</span>no aplica</span></div>
+</div></section>
+
+<!-- SIGUIENTE -->
+<section id="siguiente" class="dark"><div class="in">
+ <div class="kicker">06 · Siguiente paso</div>
+ <h2>Del Excel maestro a la app de Vinculación</h2>
+ <p class="sub">El Excel maestro es la base de datos de la futura app con Bienestar.</p>
+ <div class="road">
+  <div class="step rv"><div class="b" style="background:var(--gold)">1</div><h4>Validar</h4><p>Revisamos juntos la estructura y la regla de nombres. Se ajusta lo que haga falta.</p><span class="when">Ahora</span></div>
+  <div class="step rv"><div class="b" style="background:var(--sky)">2</div><h4>Excel maestro</h4><p>Una fila por proyecto y periodo, ✓ / ✕ por cada documento. Se completa con lo que falta.</p><span class="when">Siguiente</span></div>
+  <div class="step rv"><div class="b" style="background:#4ade80">3</div><h4>App con Bienestar</h4><p>Los docentes suben sus documentos y se ve el estado de cada proyecto en tiempo real.</p><span class="when">Después</span></div>
+ </div>
+ <div class="app">
+  <div class="feat">
+   <div class="rv"><i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v4h16v-4"/></svg></i><div><b>Los docentes suben sus documentos</b><small>Cada archivo cae solo en la carpeta correcta, con el nombre correcto.</small></div></div>
+   <div class="rv"><i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg></i><div><b>Estado por proyecto</b><small>El Excel maestro, pero en vivo: qué está completo y qué falta.</small></div></div>
+   <div class="rv"><i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 8a6 6 0 1112 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10 21h4"/></svg></i><div><b>Avisos</b><small>Informe trimestral pendiente, convenio por vencer, proyecto sin cierre.</small></div></div>
+  </div>
+  <div class="phone rv">
+   <div class="hd"><span>Mis proyectos</span><span style="color:var(--blue)">26-26</span></div>
+   <div class="it"><div><b>Barrios DMQ</b><small>Informe jul-sep 2026</small></div><span class="s" style="background:#e7f6ee;color:#0f7a45">Completo</span></div>
+   <div class="it"><div><b>Seguridad digital</b><small>Convenio vencido</small></div><span class="s" style="background:#fdecee;color:#c2253a">Revisar</span></div>
+   <div class="it"><div><b>Bienestar FCSH</b><small>Informe trimestral</small></div><span class="s" style="background:#fff4e0;color:#a35b00">Pendiente</span></div>
+   <div class="up">+ Subir documento</div>
+   <div style="text-align:center;font-size:11px;color:var(--muted);margin-top:8px">Maqueta ilustrativa</div>
+  </div>
+ </div>
+ <div class="need"><b style="margin-right:6px">Para completar necesito:</b><span>Copia limpia de la base de datos de convenios</span><span>Cuál es la matriz 26-26 oficial</span><span>Informes trimestrales oct-2024 a jun-2026, si existen</span><span>Actas de cierre de los 9 proyectos antiguos</span></div>
+</div></section>
+
+<footer><b>David Sango</b> · Prácticas preprofesionales · Subdecanato de la Facultad de Ciencias Sociales y Humanas · Universidad Central del Ecuador · Noviembre 2026<br>Fuentes: estructura_carpetas.pdf, reporte_faltantes.pdf y justificacion_organizacion.pdf (versión 2, 19 nov 2026).</footer>
+
+<script>
+const TREE={"n":"SUBDECANATO_FCSH","c":[{"n":"00_NORMATIVA_Y_FORMATOS","c":[{"n":"Educacion_continua","c":[{"n":"formato para eduación continua.xls"},{"n":"INSTRUCTIVO_Educacion_Continua_UCE_CONSOLIDADO.pdf","note":"[!] su texto es igual al del Reglamento; falta el instructivo real"},{"n":"Reglamento_Educacion_Continua_UCE_CONSOLIDADO.pdf"}],"k":3},{"n":"Informes_trimestrales","c":[{"n":"3Manual - informe trimestral.pdf"},{"n":"Link modelo de formato.docx"}],"k":2},{"n":"Proyectos_comunitarios","c":[{"n":"FORMATO DE PLANIFICACIÓN O ELABORACIÓN DE PROYECTOS COMUNITARIOS.docx"},{"n":"Manual_Formato_Linea_Base.pdf"}],"k":2}],"k":7},{"n":"01_VINCULACION_CON_LA_SOCIEDAD","c":[{"n":"01_Proyectos_comunitarios","c":[{"n":"00_Listados_y_matrices_por_periodo","c":[{"n":"Listado_general_sin_periodo","c":[{"n":"1listado de proyectos.pdf"},{"n":"listado de proyectos.xlsx"}],"k":2},{"n":"Periodo_24-24","c":[{"n":"entregarPERIODO 24-24.xlsx"}],"k":1},{"n":"Periodo_24-25","c":[{"n":"coordinadores_y_docentes_de_apoyo_a_programas_24-25.xls"},{"n":"códigos de los proyectos y programa al que pertenecen.xls","note":"[!] los códigos 24-25 no son los mismos que en 26-26"},{"n":"listado 1 2425CIENCIAS SOCIALES CERTIFICADOS DOCENTES(2).xlsx","note":"[REVISAR VERSIÓN]"}],"k":3},{"n":"Periodo_25-25","c":[{"n":"DVCopia de PERIODO 25-25.xlsx"},{"n":"PROYECTOS COMUNITARIOS 25-25 VALIDADOS POR LA DVS (1).xlsx","note":"[!] cronograma de P1SOC11 Bienestar = \"FALTA\""}],"k":2},{"n":"Periodo_26-26","c":[{"n":"Aopia de PERIODO 26-26.xlsx","note":"[REVISAR VERSIÓN]"},{"n":"ASCCIENCIAS SOCIALES CERTIFICADOS DOCENTES(3).xlsx"},{"n":"DDECopia de PERIODO 26-26(1).xlsx","note":"[!] igual en contenido a \"DDCopia…\" de MATRIZ 2626"},{"n":"PERIODO 26-26.xlsx - 165 PROYECTOS 26-26.pdf"}],"k":4},{"n":"Periodo_26-27","c":[{"n":"2matriz PERIODO 26-27.pdf"},{"n":"matriz DocentesPERIODO 26-27(1).xlsx","note":"[!] 20 filas distintas a \"PERIODO 26-27.xlsx\" de auu"}],"k":2}],"k":14},{"n":"01_Vigentes","c":[{"n":"Ciencias_Politicas","c":[{"n":"Capacitacion_cultura_civica_y_politica__26-26_P9SOC01__24-25_P9SOC03","c":[{"n":"01_Diseno_y_aprobacion","c":[{"n":"2023-2023","c":[{"n":"Aprobación - UCE-FCSH-SA-2022-0190-O.pdf"},{"n":"Cronograma de actividades especificas 23-23.pdf"}],"k":2},{"n":"2023-2024","c":[{"n":"CRONOGRAMA CHRISTIAN ORTIZ 23-24.pdf","note":"[!] dice CHRISTIAN ORTIZ; el proyecto es de Andrés Ortiz Lemos (cultura cívica)"}],"k":1},{"n":"2024-2025","c":[{"n":"CRONOGRAMA 2024-2025.pdf"},{"n":"PLANIFICACION CAPACITACION CIVICA INDIGENA.doc","note":"[!] versión Word editable; la misma planificación está en PDF"},{"n":"PLANIFICACION CAPACITACION CIVICA INDIGENA.pdf"},{"n":"RESPALDO LEGAL CONTRAPARTE CAPACITACION CIVICA INDIGENA.pdf"}],"k":4}],"k":7},{"n":"02_Informes_trimestrales","c":[{"n":"2024_julio-septiembre","c":[{"n":"INFORME DE AVANCE ANDRES ORTIZ JUL-SEP 2024-signed.pdf","note":"[!] estaba dentro de la carpeta 23-23 aunque es de jul-sep 2024"},{"n":"REGISTRO DE PARTICIPANTES ANDRES ORTIZ JUL-SEP 2024-signed.pdf","note":"[!] estaba dentro de la carpeta 23-23 aunque es de jul-sep 2024"}],"k":2},{"n":"2026_julio-septiembre","c":[{"n":"PROFESOR ANDRÉS ORTIZ LEMOS2026_final.pdf"}],"k":1}],"k":3}],"k":10},{"n":"Observatorio_de_Derechos_Humanos__26-26_P2SOC02__24-25_P2SOC03","c":[{"n":"01_Diseno_y_aprobacion","c":[{"n":"2023-2024","c":[{"n":"CRONOGRAMA CRISTINA BASTIDAS 23-24.pdf"},{"n":"PLANIFICACION ACTUALIZADA CRISTINA BASTIDAS.pdf"}],"k":2},{"n":"2024-2025","c":[{"n":"CRONOGRAMA 2024-2025.pdf"},{"n":"PLANIFICACION OBSERVATORIO DE DERECHOS HUMANOS.pdf"},{"n":"RESPALDO JURIDICO CONTRAPARTE OBSERVATORIO DE DERECHOS HUMANOS.pdf"}],"k":3}],"k":5},{"n":"02_Informes_trimestrales","c":[{"n":"2024_julio-septiembre","c":[{"n":"INFORME DE AVANCE CRISTINA BASTIDAS JUL-SEP 2024-signed.pdf","note":"[!] estaba dentro de la carpeta 23-23 aunque es de jul-sep 2024"},{"n":"REGISTRO DE PARTICIPANTES CRISTINA BATIDAS JUL-SEP 2024-signed.pdf","note":"[!] estaba dentro de la carpeta 23-23 aunque es de jul-sep 2024"}],"k":2},{"n":"2026_julio-septiembre","c":[{"n":"PROFA CRISTINA BASTIDAS _JULIO_SEPTIEMBRE_signed-signed.pdf"}],"k":1}],"k":3}],"k":8},{"n":"Sistema_Electoral_Democracia_Participativa__26-26_P2SOC01","c":[{"n":"02_Informes_trimestrales","c":[{"n":"2026_julio-septiembre","c":[{"n":"PROF SANTIAGO YÉPEZInforme_avance_trimestral_UCE_IDD_julio_septiembre_2026-signed-signed.pdf"}],"k":1}],"k":1}],"k":1}],"k":19},{"n":"Historia","c":[{"n":"Democratizar_el_pasado_y_el_presente__26-26_P8SOC01","c":[{"n":"02_Informes_trimestrales","c":[{"n":"2026_julio-septiembre","c":[{"n":"PROFA KATY ÁLVAREZ_INFORME_AVANCE_TRIMESTRAL_FINAL_03032026_V3_(1)_signed_signed_signed (1)-signed.pdf","note":"[!] nombre con fecha \"03032026\" confunde"}],"k":1}],"k":1}],"k":1},{"n":"Memoria_historica_luchas_socioambientales__26-26_P5SOC01","c":[{"n":"02_Informes_trimestrales","c":[{"n":"2026_julio-septiembre","c":[{"n":"PROF. OMAR BONILLA informe_trimestral_julio_septiembre_2026_final-signed.pdf"}],"k":1}],"k":1}],"k":1}],"k":2},{"n":"Sociologia","c":[{"n":"Acompanamiento_familias_estado_punitivo__26-26_P2SOC03__24-25_P2SOC04","c":[{"n":"01_Diseno_y_aprobacion","c":[{"n":"2023-2023","c":[{"n":"Cronograma de actividades especificas 23-23.pdf"},{"n":"Extesion de plazo del proyecto.pdf"},{"n":"Planificacion Proyecto semestre","note":"23-23.pdf"}],"k":3},{"n":"2023-2024","c":[{"n":"CRONOGRAMA ANDREA AGUIRRE 23-24.pdf"}],"k":1},{"n":"2024-2025","c":[{"n":"CRONOGRAMA 2024-2025.pdf"},{"n":"PLANIFICACION ACOMPAÑAMIENTO ESTADO PUNITIVO.pdf"},{"n":"RESPALDO LEGAL CONTRAPARTE ACOMPAÑAMIENTO ESTADO PUNITIVO.pdf"}],"k":3}],"k":7},{"n":"02_Informes_trimestrales","c":[{"n":"2024_julio-septiembre","c":[{"n":"INFORME DE AVANCE ANDREA AGUIRRE JUL-SEP 2024-signed.pdf","note":"[!] estaba dentro de la carpeta 23-23 aunque es de jul-sep 2024"},{"n":"REGISTRO DE PARTICIPANTES ANDREA AGUIRRE JUL-SEP 2024-signed.pdf","note":"[!] estaba dentro de la carpeta 23-23 aunque es de jul-sep 2024"}],"k":2},{"n":"2026_julio-septiembre","c":[{"n":"PROFA ANDREA AGUIRREA FORMATO_INFORME_AVANCE_TRIMESTRAL_FINAL-signed.pdf"}],"k":1}],"k":3}],"k":10},{"n":"Coleccion_Filosofica_Actual__26-26_P8SOC06__24-25_P8SOC08","c":[{"n":"01_Diseno_y_aprobacion","c":[{"n":"2023-2023","c":[{"n":"Aprobación UCE-FCSH-SA-2023-0064-O.pdf"},{"n":"Cronograma de actividades especificas 23-23.pdf"},{"n":"Linea Base 23-23.pdf"},{"n":"Planificacion Proyecto 23-23.pdf"},{"n":"Respaldo legal Contraparte 23-23.pdf"}],"k":5},{"n":"2023-2024","c":[{"n":"CRONOGRAMA JUAN MARTIN AULESTIA 23-24.pdf"}],"k":1},{"n":"2024-2025","c":[{"n":"CRONOGRMA 2024-2025.pdf"},{"n":"PLANIFICACION SERIE FILOSOFICA.pdf"},{"n":"PRESUPUESTO SERIE FILOSOFICA.pdf"},{"n":"RESPALDO LEGAL CONTRAPARTE SERIE FILOSOFICA.pdf"}],"k":4}],"k":10},{"n":"02_Informes_trimestrales","c":[{"n":"2024_julio-septiembre","c":[{"n":"INFORME DE AVANCE MARTIN AULESTIA JUL-SEP 2024-signed.pdf","note":"[!] estaba dentro de la carpeta 23-23 aunque es de jul-sep 2024"},{"n":"REGISTRO DE PARTICIPANTES MARTIN AULESTIA JUL-SEP 2024-signed.pdf","note":"[!] estaba dentro de la carpeta 23-23 aunque es de jul-sep 2024"}],"k":2},{"n":"2026_julio-septiembre","c":[{"n":"PROF MARTÍN AULESTIA Informe julio-septiembre (1)-signed.pdf"}],"k":1}],"k":3}],"k":13},{"n":"Informacion_Tecnica_y_Social_Kitu_Kara__26-26_P9SOC06","c":[{"n":"01_Diseno_y_aprobacion","c":[{"n":"2024-2025","c":[{"n":"CRONOGRAMA 2024-2025.pdf"},{"n":"LINEA BASE PRODUCCION TECNICA KITU KARA.pdf"},{"n":"PLANIFICACION PRODUCCION TECNICA KITU KARA.pdf"},{"n":"PRESUPUESTO PRODUCCION TECNICA KITU KARA.pdf"}],"k":4}],"k":4},{"n":"02_Informes_trimestrales","c":[{"n":"2026_julio-septiembre","c":[{"n":"prof RICARDO SÁNCHEZ INFORME_AVANCE_TRIMESTRAL_FINAL_con links.xlsm-1-signed-signed-signed-signed-signed-signed.pdf"}],"k":1}],"k":1}],"k":5},{"n":"Seguridad_y_autonomia_digital__26-26_P8SOC05__24-25_P8SOC09","c":[{"n":"01_Diseno_y_aprobacion","c":[{"n":"2023-2023","c":[{"n":"Aprobacion UCE-FCSH-SA-2023-0055-O.pdf"},{"n":"Cronograma de actividades especificas 23-23.pdf"},{"n":"LINEA BASE.pdf"},{"n":"Planificacion del Proyecto 23-23.pdf"}],"k":4},{"n":"2023-2024","c":[{"n":"CRONOGRAMA CHRISTIAN ARTEGA 23-24.pdf"}],"k":1},{"n":"2024-2025","c":[{"n":"CONSTANCIA DE REGISTRO SUIOS.pdf"},{"n":"CRONOGRAMA 2024-2025.pdf"},{"n":"PLANIFICACION AUTONOMIA DIGITAL.pdf"},{"n":"RENOVACIÓN DIRECTORIO 2022-2025- CAD.pdf"},{"n":"RESPALDO JURIDICO CONTRAPARTE AUTONOMIA DIGITAL.pdf"}],"k":5}],"k":10},{"n":"02_Informes_trimestrales","c":[{"n":"2024_julio-septiembre","c":[{"n":"INFORME DE AVANCE CHRISTIAN ARTEAGA JUL-SEP 2024-signed.pdf","note":"[!] estaba dentro de la carpeta 23-23 aunque es de jul-sep 2024"},{"n":"REGISTRO DE PARTICIPANTES CHRISTIAN ARTEAGA JUL-SEP 2024-signed.pdf","note":"[!] estaba dentro de la carpeta 23-23 aunque es de jul-sep 2024"}],"k":2},{"n":"2026_julio-septiembre","c":[{"n":"PROF CRISTIAN ARTEAGA_INFORME_AVANCE_TRIMESTRAL_FINAL_julio septiembre (1)-signed-signed-signed-signed.pdf","note":"[!] el consolidado de cierres lo marca \"PENDIENTE DE CIERRE\""}],"k":1}],"k":3}],"k":13}],"k":41},{"n":"Trabajo_Social","c":[{"n":"Barrios_DMQ_2024-2029__26-26_P9SOC05","c":[{"n":"01_Diseno_y_aprobacion","c":[{"n":"2024-2025","c":[{"n":"CRONOGRAMA 2024-2025.pdf"},{"n":"LINEA BASE BARRIOS DE QUITO.pdf"},{"n":"PLANIFICACION BARRIOS DE QUITO CORREGIDA.pdf"},{"n":"PLANIFICACION BARRIOS DE QUITO.pdf","note":"[REVISAR VERSIÓN]"}],"k":4},{"n":"FORMATO_ELABORACION_DISEÑO_PROYECTOS SEP-signed-signed.pdf"}],"k":5},{"n":"02_Informes_trimestrales","c":[{"n":"2026_julio-septiembre","c":[{"n":"FORMATO_INFORME_AVANCE_TRIMESTRAL_FINAL_periodo_26-26 julio seotiuembre.xlsm","note":"[!] carpeta original dice 2019-2023; el diseño vigente es 2024-2029"},{"n":"pofa Myriam PnaherreraFORMATO_INFORME_AVANCE_TRIMESTRAL_FINAL_periodo_26-26 julio seotiuembre-signed-signed.pdf"}],"k":2}],"k":2}],"k":7},{"n":"Bienestar_de_la_FCSH__25-25_P1SOC11","c":[{"n":"01_Diseno_y_aprobacion","c":[{"n":"2024-2025","c":[{"n":"CRONOGRAMA 2024-2025.pdf"},{"n":"LINEA BASE BIENESTAR FSCH.pdf"},{"n":"PLANIFICACION BIENESTAR FCSH CORREGIDA-signed.pdf"},{"n":"PLANIFICACION BIENESTAR FCSH CORREGIDA.pdf","note":"[REVISAR VERSIÓN]"},{"n":"PLANIFICACION BIENESTAR FCSH.pdf","note":"[REVISAR VERSIÓN]"},{"n":"PRESUPUESTO BIENESTAR FCSH.pdf"}],"k":6}],"k":6},{"n":"02_Informes_trimestrales","note":"(vacía: con código P1SOC11 en 25-25; sí tiene diseño 24-25 en 01_Diseno_y_aprobacion, pero no hay ningún informe trimestral)","c":[],"k":0}],"k":6},{"n":"Desarrollo_Rural_Campesino_Pujili__26-26_P9SOC11","c":[{"n":"02_Informes_trimestrales","c":[{"n":"2026_julio-septiembre","c":[{"n":"Informe Pujilí PROF JORGE PIEDRA- semestre 2026-2026-signed.pdf"}],"k":1}],"k":1}],"k":1},{"n":"Escuela_Intergeneracional_Winenani-Pikenani__26-26_P9SOC02__24-25_P9SOC04","c":[{"n":"01_Diseno_y_aprobacion","c":[{"n":"2023-2023","c":[{"n":"Cronograma de actividades especificas 23-23.pdf"},{"n":"Planificacion Proyecto 23-23.pdf"}],"k":2},{"n":"2023-2024","c":[{"n":"CRONOGRAMA GABRIELA DUQUE 23-24.pdf"}],"k":1},{"n":"2024-2025","c":[{"n":"CRONOGRAMA 2024-2025.pdf"},{"n":"PLANIFICACIÓN WIÑENAN PIKENANI CORREGIDA.pdf"},{"n":"PRESUPUESTO WIÑENAN PIKENANI.pdf"},{"n":"RESPALDO JURIDICO CONTRAPARTE WIÑENAN PIKENANI.pdf"}],"k":4}],"k":7},{"n":"02_Informes_trimestrales","c":[{"n":"2024_julio-septiembre","c":[{"n":"INFORME DE AVANCE GABRIELA DUQUE JUL-SEP 2024-signed.pdf","note":"[!] estaba dentro de la carpeta 23-23 aunque es de jul-sep 2024"},{"n":"REGISTRO DE PARTICIPANTES GABRIELA DUQUE JUL-SEP 2024-signed.pdf","note":"[!] estaba dentro de la carpeta 23-23 aunque es de jul-sep 2024"}],"k":2},{"n":"2026_julio-septiembre","c":[{"n":"PROFA GABRIELA DUQUE INFORME AVANCE EIWP julio sept 26-signed.pdf"}],"k":1}],"k":3}],"k":10},{"n":"Gestion_Social_del_Riesgo_Laderas_Pichincha__26-26_P9SOC04","c":[{"n":"01_Diseno_y_aprobacion","c":[{"n":"2024-2025","c":[{"n":"CRONOGRAMA 2024-2025.pdf"},{"n":"LINEA BASE BARRIOS DE QUITO.pdf","note":"[!] está en la carpeta de Laderas pero el nombre dice \"BARRIOS DE QUITO\""},{"n":"PLANIFICACIÓN LADERAS DE PICHINCHA.pdf"},{"n":"PRESUPUESTO BARRIOS DE QUITO.pdf","note":"[!] está en la carpeta de Laderas pero el nombre dice \"BARRIOS DE QUITO\""},{"n":"RESPALDO LEGAL CONTRAPARTE BARRIOS DE QUITO.pdf","note":"[!] está en la carpeta de Laderas pero el nombre dice \"BARRIOS DE QUITO\""}],"k":5}],"k":5},{"n":"02_Informes_trimestrales","c":[{"n":"2026_julio-septiembre","c":[{"n":"PROF ALEJANDRO PÁEZ_AVANCE_TRIMESTRAL_FINAL_04-10-26(2)-signed-signed-signed-signed.pdf"}],"k":1}],"k":1}],"k":6},{"n":"Programa_de_radio_Desde_el_Borde__26-26_P2SOC10","c":[{"n":"02_Informes_trimestrales","c":[{"n":"2026_julio-septiembre","c":[{"n":"FORMATO_INFORME_AVANCE_TRIMESTRAL_FINAL_2do 2026 - 2026.xlsm"},{"n":"PROFA GRACE MERINO_INFORME_AVANCE_TRIMESTRAL_FINAL_2do 2026 - 2026-signed-signed.pdf"}],"k":2}],"k":2}],"k":2}],"k":32}],"k":94},{"n":"02_Nuevos_sin_codigo","c":[{"n":"Proyectos_aprobados_Res_0062","note":"(vacía: 8 diseños aprobados ad referéndum, sin archivos ni código)","c":[],"k":0},{"n":"SIN-CODIGO_El_cuarto_de_atras_podcast","c":[{"n":"01_Diseno_y_aprobacion","c":[{"n":"proyecto__el_cuarto_de_atrás_versión_corregida_-signed-3-signed.pdf","note":"[!] sin código y ODS \"ESCOJA UNA OPCIÓN\""}],"k":1}],"k":1}],"k":1},{"n":"03_Cerrados","c":[{"n":"Escuela_DDHH_y_Genero__26-26_P2SOC04","c":[{"n":"02_Informes_trimestrales","c":[{"n":"2026_julio-septiembre","c":[{"n":"PROFA ANDREA TAMAYO_AVANCE_TRIMESTRAL (JULIO-SEPT2026)-signed-signed-signed-signed.pdf"}],"k":1}],"k":1},{"n":"03_Cierre","c":[{"n":"3ACTA_DEL_CIERRE_DEL_PROYECTO-signed-signed-signed-1-signed.pdf"},{"n":"CERTIFICADO_DE_CONFORMIDAD_DE_LA_COMUNIDAD-signed-signed-signed-signed.pdf"},{"n":"PROFA ANDREA TAMAYOINFORME_FINAL_DEL_PROYECTO-signed-signed-signed-signed.pdf"}],"k":3}],"k":4},{"n":"Laboratorio_Economia_Social_y_Solidaria__26-26_P6SOC08","c":[{"n":"01_Diseno_y_aprobacion","c":[{"n":"2024-2025","c":[{"n":"Cronograma 2024-2025.pdf"},{"n":"Linea Base PV laboratorio divulgacion ESS.pdf"},{"n":"Planifiacion PV laboratorio divulgacion ESS.pdf"},{"n":"Respaldo Legal Contraparte PV laboratorio divulgacion ESS.pdf"}],"k":4}],"k":4},{"n":"02_Informes_trimestrales","c":[{"n":"2026_julio-septiembre","c":[{"n":"CFORMATO_INFORME_AVANCE_TRIMESTRAL_JUL_SEPT.xlsm-signed-signed.pdf","note":"[!] mal ubicado"}],"k":1}],"k":1},{"n":"03_Cierre","c":[{"n":"ACTA_DE_CIERRE_PROYECTO_P6SOC08.docx-signed-signed-signed.pdf"},{"n":"CERTIFICADO_DE_CONFORMIDAD_DE_LA_COMUNIDAD.docx (1)-signed-signed-signed.pdf"},{"n":"INFORME_FINAL_PROYECTO_P6SOC08.docx (1)-signed-signed.pdf"},{"n":"UCE-FCSH-CCP-2026-0307-O.pdf"}],"k":4}],"k":9},{"n":"Santa_Clara_de_San_Millan__24-25_P3SOC21","c":[{"n":"01_Diseno_y_aprobacion","c":[{"n":"2023-2023","c":[{"n":"Aprobación - UCE-FCSH-SA-2022-0399-O.pdf"},{"n":"Cronograma de actividades especificas 23-23.pdf"},{"n":"Planificacion Proyecto semestre 23-23.pdf"},{"n":"Respaldo legal contraparte 23-23.pdf"}],"k":4},{"n":"2023-2024","c":[{"n":"CRONOGRAMA OMAR BONILLA 23-24.pdf"}],"k":1}],"k":5},{"n":"02_Informes_trimestrales","c":[{"n":"2024_julio-septiembre","c":[{"n":"INFORME DE AVANCE OMAR BONILLA JUL-SEP 2024-signed.pdf","note":"[!] estaba dentro de la carpeta 23-23 aunque es de jul-sep 2024"},{"n":"REGISTRO DE PARTICIPANTES OMAR BONILLA JUL-SEP 2024-signed.pdf","note":"[!] estaba dentro de la carpeta 23-23 aunque es de jul-sep 2024"}],"k":2}],"k":2},{"n":"ACTA_DEL_CIERRE_DEL_PROYECTOscsm-signed-signed.pdf"},{"n":"documento conformidad con la Comunidad.pdf"},{"n":"INFORME_FINAL_DEL_PROYECTO_SANTA_CLARA_DE_SAN_MILLANsigned_(1)signed_signed.pdf"}],"k":10}],"k":23},{"n":"04_Consolidado_de_cierres","c":[{"n":"Ccierre_de_proyectos_2023,_2024,_2025_y_2026.xls1.pdf","note":"[!] solo 1 fila (Seguridad digital, \"PENDIENTE DE CIERRE\") y todos los links vacíos"}],"k":1},{"n":"05_Proyectos_de_periodos_anteriores_estado_por_confirmar","c":[{"n":"Barrios_DMQ_2019-2023__sin_codigo","c":[{"n":"01_Diseno_y_aprobacion","c":[{"n":"2023-2023","c":[{"n":"Aprobacion UCE-FCSH-SA-2023-0060-O.pdf"},{"n":"Cronograma de actividades especificas 23-23.pdf"},{"n":"Levantamiento Linea Base 23-23.pdf"}],"k":3}],"k":3}],"k":3},{"n":"Comunicacion_intercultural_y_movimientos_societales__sin_codigo","c":[{"n":"01_Diseno_y_aprobacion","c":[{"n":"2023-2023","c":[{"n":"Aprobacion UCE-FCSH-SA-2022-0398-O.pdf"},{"n":"Cronograma de actividades especificas 23-23.pdf"},{"n":"Planificacion del proyecto 23-23.pdf"},{"n":"Respaldo Legal de la contraparte.pdf"}],"k":4}],"k":4}],"k":4},{"n":"Diagnostico_social_Hato_Pucara__24-25_P3SOC20","c":[{"n":"01_Diseno_y_aprobacion","c":[{"n":"2023-2024","c":[{"n":"CRONOGRAMA HENRY AYALA 23-24.pdf"},{"n":"PLANIFICACION ACTUALIZADA HENRY AYALA 23-24.pdf"}],"k":2},{"n":"2024-2025","c":[{"n":"CRONOGRAMA 2024-2025.pdf"},{"n":"PLANIFICACION HATO PUCARA CORREGIDA.pdf"},{"n":"PLANIFICACION HATO PUCARA.pdf","note":"[REVISAR VERSIÓN]"},{"n":"PRESUPUESTO HATO PUCARA.pdf"},{"n":"RESPALDO JURIDICO CONTRAPARTE HATO PUCARA.pdf"}],"k":5}],"k":7},{"n":"02_Informes_trimestrales","c":[{"n":"2024_julio-septiembre","c":[{"n":"INFORME DE AVANCE HENRY AYALA JUL-SEP 2024-signed.pdf","note":"[!] estaba dentro de la carpeta 23-23 aunque es de jul-sep 2024"},{"n":"REGISTRO DE PARTICIPANTES HENRY AYALA JUL-SEP 2024-signed.pdf","note":"[!] estaba dentro de la carpeta 23-23 aunque es de jul-sep 2024"}],"k":2}],"k":2}],"k":9},{"n":"Evaluacion_servicios_de_Telemedicina__24-25_P2SOC06","c":[{"n":"01_Diseno_y_aprobacion","c":[{"n":"2024-2025","c":[{"n":"CRONOGRAMA 2024-2025.pdf"},{"n":"PLANIFICACION TELEMEDICINA.pdf"},{"n":"PRESUPUESTO TELEMEDICINA.pdf"},{"n":"RESPALDO LEGAL CONTRAPARTE TELEMEDICINA.pdf"}],"k":4}],"k":4},{"n":"02_Informes_trimestrales","c":[{"n":"2024_julio-septiembre","c":[{"n":"INFORME DE AVANCE SOLEDAD VAREA JUL-SEP 2024-signed.pdf","note":"[!] estaba dentro de la carpeta 23-23 aunque es de jul-sep 2024"},{"n":"REGISTRO DE PARTICIPANTES SOLEDAD VAREA JUL-SEP 2024-signed.pdf","note":"[!] estaba dentro de la carpeta 23-23 aunque es de jul-sep 2024"}],"k":2}],"k":2}],"k":6},{"n":"Fortalecimiento_tejido_comunitario_Kitu_Kara__24-25_P9SOC05","c":[{"n":"01_Diseno_y_aprobacion","c":[{"n":"2023-2023","c":[{"n":"Aprobacion UCE-FCSH-SA-2023-0056-O.pdf"},{"n":"Cronograma de actividades especificas 23-23.pdf"},{"n":"Levantamiento Linea Base 23-23.docx"},{"n":"Planificacion del Proyecto semestre 23-23.pdf"},{"n":"Respaldo Legal Contraparte 23-23.pdf"}],"k":5},{"n":"2023-2024","c":[{"n":"CRONOGRAMA ELIZABETH VARGAS 23-24-1-signed.pdf"}],"k":1},{"n":"2024-2025","c":[{"n":"CRONOGRAMA 2024-2025.pdf"},{"n":"PLANIFICACION DEL PROYECTO KITU KARA.pdf"},{"n":"PRESUPUESTO.pdf"}],"k":3}],"k":9},{"n":"02_Informes_trimestrales","c":[{"n":"2024_julio-septiembre","c":[{"n":"INFORME DE AVANCE ELIZABETH VARGAS-signed.pdf","note":"[!] estaba dentro de la carpeta 23-23 aunque es de jul-sep 2024"},{"n":"REGISTRO DE PARTICIPANTES ELIZABETH VARGAS JUL-SEP 2024-signed.pdf","note":"[!] estaba dentro de la carpeta 23-23 aunque es de jul-sep 2024"}],"k":2}],"k":2}],"k":11},{"n":"Historia_y_Memoria_Obrera__sin_codigo","c":[{"n":"01_Diseno_y_aprobacion","c":[{"n":"2023-2023","c":[{"n":"Aprobación - UCE-FCSH-SA-2022-0401-O.pdf"},{"n":"Cronograma de actividades especificas 23-23.pdf"},{"n":"Planificacion del Proyecto semestre 23-23.pdf"},{"n":"Respaldo Legal Contraparte.pdf"}],"k":4}],"k":4}],"k":4},{"n":"Inclusion_Social_DMQ__24-25_P2SOC02","c":[{"n":"01_Diseno_y_aprobacion","c":[{"n":"2023-2023","c":[{"n":"Linea_base_RC_2022-2023","c":[{"n":"RC 2022-2023 CENTRO DE ACOGIDA-1.pdf"},{"n":"RC 2022-2023 SISTEMA DE PROTECCIÓN INTEGRAL.pdf"},{"n":"RC 2022-2023 TRABAJO SEXUAL.pdf"},{"n":"RC 2022-2023 UNIDAD ABC.pdf"}],"k":4},{"n":"Aprobacion UCE-FCSH-SA-2023-0053-O.pdf"},{"n":"Cronograma de actividades especificas 23-23.pdf"},{"n":"Planificacion proyecto 23-23.pdf"}],"k":7},{"n":"2023-2024","c":[{"n":"CRONOGRAMA JUAN MANUEL GUZMAN 23-24.pdf"}],"k":1},{"n":"2024-2025","c":[{"n":"CRONOGRAMA 2024-2025.pdf"},{"n":"PLANIFICACIÓN INCLUSIÓN SOCIAL.pdf"},{"n":"RESPALDO JURÍDICO CONTRAPARTE INCLUSIÓN SOCIAL.pdf"}],"k":3}],"k":11},{"n":"02_Informes_trimestrales","c":[{"n":"2024_julio-septiembre","c":[{"n":"INFORME DE AVANCE JUAN MANUEL GUZMAN JUL-SEP 2024-signed.pdf","note":"[!] estaba dentro de la carpeta 23-23 aunque es de jul-sep 2024"},{"n":"REGISTRO DE PARTICIPANTES JUAN MANUEL GUZMAN JUL-SEP 2024-signed.pdf","note":"[!] estaba dentro de la carpeta 23-23 aunque es de jul-sep 2024"}],"k":2}],"k":2}],"k":13},{"n":"Laboratorio_Politicas_Publicas_creditos_y_regulacion_financiera__sin_codigo","c":[{"n":"01_Diseno_y_aprobacion","c":[{"n":"2023-2023","c":[{"n":"Aprobación del Proyecto - UCE-FCSH-SA-2021-0027-O.pdf"},{"n":"Cronograma de actividades especificas 23-23.pdf"},{"n":"Planificacion del proyecto 23-23.pdf"}],"k":3}],"k":3}],"k":3},{"n":"Proyecto_Soledad_Varea_2023__nombre_sin_llenar","c":[{"n":"01_Diseno_y_aprobacion","c":[{"n":"2023-2023","c":[{"n":"Aprobacion del Proyecto.pdf","note":"[!] este oficio trata del proyecto «Laboratorio de Políticas Públicas» (de K. King), no del proyecto de Varea"},{"n":"Cronograma de actividades especificas 23-23.pdf"},{"n":"Planificacion del Proyecto 23-23.pdf","note":"[!] \"Nombre del proyecto\" está vacío; los objetivos son iguales a los del Observatorio de DDHH"},{"n":"Respaldo Legal de la Contraparte.pdf"}],"k":4}],"k":4}],"k":4}],"k":57}],"k":190},{"n":"02_Practicas_preprofesionales","c":[{"n":"Lugares_de_practica","note":"(vacía, pedida por la doctora: \"no necesitamos el formato sino colocar lugares\")","c":[],"k":0},{"n":"Periodo_2023-2023","c":[{"n":"Justificaciones_horas_tutores","c":[{"n":"Justificacion incremento de horas a tutores de practicas UCE-FCSH-TS-2023-0121-O.pdf"},{"n":"UCE-FCSH-CCP-2023-0114-O.pdf"}],"k":2}],"k":2},{"n":"Periodo_2023-2024","c":[{"n":"Justificaciones_horas_tutores","c":[{"n":"UCE-FCSH-CCP-2023-0191-O.pdf"},{"n":"UCE-FCSH-CS-2023-0419-O.pdf"},{"n":"UCE-FCSH-DEC-2023-0450-M.pdf"}],"k":3}],"k":3},{"n":"Periodo_2026-2026","c":[{"n":"Ciencias_Politicas","c":[{"n":"111FORMATO-EVALUACION-PPP-CIENCIAS POLITICAS 2026-2026-signed.pdf"},{"n":"44 FORMATO-EVALUACION-PPP-CIENCIAS POLITICAS 2026-2026.xlsx"}],"k":2},{"n":"Sociologia","c":[{"n":"3SOCIOLOGÍAEVALUACIÓN1. FORMATO DE EVALUACIÓN PPP-FACULTAD-signed.pdf","note":"[!] campo Facultad dice \"SELECCIONE UNA FACULTAD\""},{"n":"EVALUACIÓNp2. FORMATO DE EVALUACIÓN PPP-FACULTAD(1).xlsx"}],"k":2},{"n":"Trabajo_Social","c":[{"n":"B LISTOEVALUACIÓN1. FORMATO DE EVALUACIÓN PPP-FACULTAD-signed.pdf","note":"[!] no hay versión Excel editable"}],"k":1}],"k":5}],"k":10},{"n":"03_Educacion_continua","c":[{"n":"Estudios_de_pertinencia","c":[{"n":"Estudio de pertinencia proyectos de educacion continua TS.pdf"}],"k":1},{"n":"Etica_en_el_mundo_contemporaneo","c":[{"n":"01_Propuesta_y_aprobacion","c":[{"n":"Aulestia - Propuesta curso EC - ÉTICA-signed.pdf","note":"[!] portada dice \"[FECHA]\" sin llenar"}],"k":1}],"k":1},{"n":"Observatorio_del_Trabajo_Formacion_politica_sindicalizados","c":[{"n":"01_Propuesta_y_aprobacion","c":[{"n":"formación_política_para_trabajadores_sindicalizados_(1).docx-1.pdf","note":"[!] sin firma electrónica; solo se llega por un link de la hoja de carga horaria"}],"k":1}],"k":1},{"n":"Periodo_2023-2023","c":[{"n":"Aldrin_Espin","c":[{"n":"Planificacion proyecto semestre 23-23.xlsx","note":"[!] en el campo \"Nombre del evento\" solo dice \"Educación Continua\" (no tiene el nombre real)"}],"k":1},{"n":"Andrea_Reinoso_Curso_violencias_Poder_Judicial","c":[{"n":"Aprobacion UCE-FCSH-SA-2022-0400-O.pdf"},{"n":"Cronograma de actividades especificas 23-23.pdf"},{"n":"Planificacion semestre 23-23.pdf"}],"k":3},{"n":"Johanna_Elizabeth_Vargas","c":[{"n":"Planificacion proyecto semestre 23-23.xlsx"}],"k":1},{"n":"Liliana_Cevallos","c":[{"n":"Planificacion proyecto semestre 23-23.xlsx","note":"[!] en el campo \"Nombre del evento\" solo dice \"Educación Continua\" (no tiene el nombre real)"}],"k":1},{"n":"Maria_De_Castro","c":[{"n":"Planificacion proyecto semestre 23-23.xlsx","note":"[!] en el campo \"Nombre del evento\" solo dice \"Educación Continua\" (no tiene el nombre real)"}],"k":1},{"n":"Martha_Racines","c":[{"n":"Planificacion proyecto semestre 23-23.xlsx","note":"[!] en el campo \"Nombre del evento\" solo dice \"Educación Continua\" (no tiene el nombre real)"}],"k":1},{"n":"Ruben_Alejandro_Paez","c":[{"n":"Planificacion proyecto semestre 23-23.xlsx","note":"[!] en el campo \"Nombre del evento\" solo dice \"Educación Continua\" (no tiene el nombre real)"}],"k":1}],"k":9},{"n":"Periodo_2023-2024","c":[{"n":"Andrea_Reinoso_Abordajes_interdisciplinarios_violencias","c":[{"n":"23-24 Cronograma Curso Abordajes Interd. Violencias-signed.pdf"},{"n":"23-24 Curso Abordajes interdisciplinarios de las violencias.pdf"},{"n":"23-24 Matrices vinculación ACTUALIZADO.xlsx","note":"[!] el Excel tiene \"Educación Continua\" como nombre del evento"}],"k":3},{"n":"Carrera_Trabajo_Social","c":[{"n":"Análisis cuantitativo para la investigación y problemas sociales 23-24.xlsx","note":"[!] el campo \"Nombre del evento\" dice solo \"Educación Continua\"; el nombre real está en el nombre del archivo"},{"n":"Herramientas jurídicas y diagnóstico de las relaciones comunitarias en contextos conflictivos 23-24.xlsx","note":"[!] el campo \"Nombre del evento\" dice solo \"Educación Continua\"; el nombre real está en el nombre del archivo"},{"n":"Intervención del Trabajo Social en el área laboral 23-24.xlsx","note":"[!] el campo \"Nombre del evento\" dice solo \"Educación Continua\"; el nombre real está en el nombre del archivo"},{"n":"La mediación herramienta en la intervención 23-24.xlsx","note":"[!] el campo \"Nombre del evento\" dice solo \"Educación Continua\"; el nombre real está en el nombre del archivo"},{"n":"Organización territorial y resiliencia social para el desarrollo local 23-24.xlsx","note":"[!] el campo \"Nombre del evento\" dice solo \"Educación Continua\"; el nombre real está en el nombre del archivo"}],"k":5}],"k":8}],"k":20},{"n":"04_Convenios","c":[{"n":"01_Base_de_datos","c":[{"n":"BASE DE DATOS DE CONVENIOS FCSH.xls EDITANDO.xls","note":"[!] pesa 473 MB (anormal); no se pudo abrir"}],"k":1},{"n":"02_Matriz_diagnostica","c":[{"n":"Matriz_Diagnostica_Convenios_FCSH_UCE - ACTUALIZADO.xlsx"}],"k":1},{"n":"03_Convenios_firmados_PDF","c":[{"n":"18 CONVENIO ENTRE LA FCSH UCE Y LA SECRETARIA DE INCLUSION SOCIAL DEL MUNICIPIO DEL D.M. DE QUITO.PDF"},{"n":"24 CONVENIO ENTRE LA FCSH UCE Y LA CONFEREDACION DE OGRANIZACIONES SINDICALES LIBRES CEOSL.pdf"},{"n":"42. CONVENIO ENTRE EL ARCHIVO NACIONAL Y LA FCSH - UCE.pdf"},{"n":"43. CONVENIO ENTRE LA FEDERACIÓN DE BARRIOS DE QUITO Y LA FCSH-UCE.pdf"},{"n":"CONVENIO ACOMPAÑAMIENTO ESTADO PUNITIVO.pdf"},{"n":"CONVENIO AUTONOMIA DIGITAL.pdf"},{"n":"CONVENIO BIENESTAR FCSH.pdf"},{"n":"CONVENIO CAPACITACION CIVICA INDIGENA.pdf"},{"n":"CONVENIO HATO PUCARA.pdf"},{"n":"Convenio ISTEPS FCE FCSH.pdf"},{"n":"CONVENIO KITU KARA.pdf"},{"n":"CONVENIO OBSERVATORIO DE DERECHOS HUMANOS.pdf"},{"n":"CONVENIO PRODUCCION TECNICA KITU KARA.pdf"},{"n":"Convenio PV laboratorio divulgacion ESS.pdf"},{"n":"CONVENIO SERIE FILOSOFICA.pdf"},{"n":"CONVENIO TELEMEDICINA.pdf"},{"n":"CONVENIOS ESCUELA WIÑENAN PIKENANI.pdf"}],"k":17}],"k":19},{"n":"05_Carga_horaria_docente","c":[{"n":"Periodo_23-23","c":[{"n":"UCE-FCSH-CS-2023-0265-O.pdf"},{"n":"UCE-FCSH-DEC-2023-0316-O.pdf"}],"k":2},{"n":"Periodo_26-27","c":[{"n":"Copia de CIENCIAS SOCIALES Y HUMANAS.xlsx","note":"[!] 13 de 14 proyectos vigentes sin código"}],"k":1}],"k":3},{"n":"06_Presentaciones","c":[{"n":"DIAPO Vinculación con la sociedad- fFCSH.pptx"}],"k":1},{"n":"07_Servicios_especializados","c":[{"n":"ISTEPS_Fortalecimiento_institucional","c":[{"n":"2023-2023","c":[{"n":"Aprobación - UCE-FCSH-SA-2022-0402-O.pdf"},{"n":"Cronograma de actividades especificas 23-23.pdf"},{"n":"Cronograma ISTEPS 2023-2023.docx"},{"n":"Planificacion del Proyecto semestre 23-23.pdf"},{"n":"Respaldo legal de la contraparte.pdf"}],"k":5},{"n":"2023-2024","c":[{"n":"CRONOGRAMA SILVIA VEGA 23-24.pdf"}],"k":1},{"n":"2024-2025","c":[{"n":"AMPLIACION PLAZO ISTEPS.pdf"},{"n":"CRONOGRAMA 2024-2025.pdf"}],"k":2},{"n":"Informes_trimestrales","c":[{"n":"2024_julio-septiembre","c":[{"n":"INFORME DE AVANCE SILVIA VEGA JUL-SEP 2024-signed.pdf","note":"[!] estaba dentro de la carpeta 23-23 aunque es de jul-sep 2024"},{"n":"REGISTRO DE PARTICIPANTES SILVIA VEGA JUL-SEP 2024-signed.pdf","note":"[!] estaba dentro de la carpeta 23-23 aunque es de jul-sep 2024"}],"k":2}],"k":2}],"k":10}],"k":10}],"k":253},{"n":"02_SEGUIMIENTO_A_GRADUADOS","note":"(vacía, mencionada por la doctora) — existe la Comisión de Seguimiento a Graduados en la Res. 0063","c":[],"k":0},{"n":"03_BIENESTAR_UNIVERSITARIO","c":[{"n":"01_Modelo_de_gestion","c":[{"n":"5Modelo_Oficina_Bienestar_Universitario_FCSH_V3.pdf"}],"k":1},{"n":"02_Induccion_estudiantes","c":[{"n":"induccion_estudiantes_nuevos_2026-1.pdf"}],"k":1},{"n":"03_Promocion_de_la_salud","c":[{"n":"INFORME_TECNICO_CONSOLIDADO_DE_ACTIVIDADES_DE_PROMOCION_DE_LA_SALUDsignedsigned_signed.pdf"}],"k":1},{"n":"04_Eventos_y_certificados","c":[{"n":"2025-06-15_Conversatorio_Trabajo_Social_Forense","c":[{"n":"Borradores_Word","c":[{"n":"docente Paos.docx","note":"[VERSIÓN ANTERIOR/BORRADOR]"},{"n":"docenten invitados.docx","note":"[VERSIÓN ANTERIOR/BORRADOR]"},{"n":"docenten prof","note":"Acanda.pdf  [VERSIÓN ANTERIOR/BORRADOR]"},{"n":"docenten prof","note":"Marcos.docx  [VERSIÓN ANTERIOR/BORRADOR]"},{"n":"docenten prof Jenny.docx","note":"[VERSIÓN ANTERIOR/BORRADOR]"}],"k":5},{"n":"Firmados","c":[{"n":"docenten prof","note":"Ayala H-signed.pdf  [REVISAR VERSIÓN]"},{"n":"docenten prof","note":"Jorge Luis Acanda-signed.pdf  [REVISAR VERSIÓN]"},{"n":"docenten prof","note":"Marcos Chinchilla Montes-signed.pdf  [REVISAR VERSIÓN]"},{"n":"docenten prof","note":"paola G-signed.pdf  [REVISAR VERSIÓN]"},{"n":"docenten prof Jenny-signed.pdf","note":"[REVISAR VERSIÓN]"},{"n":"docenten prof Juan Fernando Regalado Loaiza-signed.pdf","note":"[REVISAR VERSIÓN]"},{"n":"JorgeAcanda.pdf"},{"n":"Prf.HenryAyala.pdf"},{"n":"prof JuanRegalado.pdf"},{"n":"Prof. JennyLowick.pdf"},{"n":"prof. PaolaGallardo.pdf"},{"n":"ProfMarcosChinchilla.pdf"}],"k":12}],"k":17}],"k":17}],"k":20},{"n":"04_GESTION_Y_FINANCIERO","c":[{"n":"01_Informes_de_gestion","c":[{"n":"2026_abril-octubre","c":[{"n":"3LISTO ABRIL OCTUBREINFORME DE GESTIÓN INTEGRAL DE GESTIÓN DEL SUBDECANATO.docx"},{"n":"4LISTO ABRIL OCTUBREINFORME DE GESTIÓN INTEGRAL DE GESTIÓN DEL SUBDECANATO.pdf","note":"[!] sin firma electrónica detectada"}],"k":2}],"k":2},{"n":"02_Resoluciones_y_oficios","c":[{"n":"2023","c":[{"n":"Aprobacion UCE-FCSH-SA-2023-0077-O.pdf"},{"n":"Extenciones de plazo y Actualizacion de Aprobaciones UCE-FCSH-SA-2023-0094-O.pdf"},{"n":"Extensiones de Plazo y Actualización de Aprobaciones UCE-FCSH-SA-2023-0090-O.pdf"},{"n":"Oficio Nro. UCE-FCSH-SA-2023-0251-O Extención de Plazos.pdf","note":"[!] es un escaneo, sin texto ni firma electrónica"}],"k":4},{"n":"2024","c":[{"n":"UCE-FCSH-SA-2024-0282-O.pdf"},{"n":"UCE-FCSH-SA-2024-0287-O.pdf"}],"k":2},{"n":"2026","c":[{"n":"RESOLUCIÓN 22092026UCE-FCSH-SA-2026-0066-R-2.pdf"},{"n":"RESOLUCIÓN EDUC CONTUCE-FCSH-DEC-2026-0063-R.pdf (id 1lS104…)","note":"[!] el nombre dice \"EDUC CONT\" pero trata de comisiones"},{"n":"UCE-DVS-2026-1211-O.pdf informe trimestral septiembre DVS.pdf"},{"n":"UCE-FCSH-DEC-2026-0062-R.pdf RESOLUCIÓN ADREFERENDUM 09092026.pdf"},{"n":"uce-fcsh-sa-2026-0085-r-1-2.pdf"}],"k":5}],"k":11},{"n":"03_Financiero","note":"(vacía, mencionada por la doctora: \"después hacemos lo del financiero\")","c":[],"k":0}],"k":13},{"n":"05_PRACTICANTES_DEL_SUBDECANATO","c":[{"n":"Reunion_2026-11-17","c":[{"n":"ingeniería informática práctica preprof.m4a","note":"[!] carpeta con nombre engañoso"},{"n":"Lo que se grabo por error.txt"},{"n":"WhatsApp Image 2026-11-17 at 8.05.06 PM.jpeg"},{"n":"WhatsApp Image 2026-11-17 at 8.05.40 PM.jpeg"}],"k":4}],"k":4},{"n":"99_DUPLICADOS_POR_REVISAR (no se borra nada)","c":[{"n":"1310DVCopia de PERIODO 25-25.xlsx","note":"[DUPLICADO]"},{"n":"24 CONVENIO ENTRE LA FCSH UCE Y LA CONFEREDACION DE OGRANIZACIONES SINDICALES LIBRES CEOSL.PDF","note":"[DUPLICADO]"},{"n":"3ACTA_DEL_CIERRE_DEL_PROYECTO-signed-signed-signed-1.pdf","note":"[VERSIÓN ANTERIOR/BORRADOR]"},{"n":"3EVALUACIÓN1. FORMATO DE EVALUACIÓN PPP-FACULTAD-signed.pdf","note":"[DUPLICADO]"},{"n":"44 FORMATO-EVALUACION-PPP-CIENCIAS POLITICAS 2026-2026.xlsx","note":"[DUPLICADO]"},{"n":"ACTA_DE_CIERRE_PROYECTO_P6SOC08.docx-signed-signed-signed.pdf","note":"[DUPLICADO]"},{"n":"ACTA_DEL_CIERRE_DEL_PROYECTO-signed.pdf","note":"[DUPLICADO]"},{"n":"Aprobacion UCE-FCSH-SA-2023-0077-O.pdf","note":"[DUPLICADO]"},{"n":"Aprobacion UCE-FCSH-SA-2023-0077-O.pdf","note":"[DUPLICADO]"},{"n":"Aprobacion UCE-FCSH-SA-2023-0077-O.pdf","note":"[DUPLICADO]"},{"n":"Aprobacion UCE-FCSH-SA-2023-0077-O.pdf","note":"[DUPLICADO]"},{"n":"Aprobacion UCE-FCSH-SA-2023-0077-O.pdf","note":"[DUPLICADO]"},{"n":"Aprobacion.pdf","note":"[DUPLICADO]"},{"n":"B LISTOEVALUACIÓN1. FORMATO DE EVALUACIÓN PPP-FACULTAD-signed.pdf","note":"[DUPLICADO]"},{"n":"CERTIFICADO_DE_CONFORMIDAD_DE_LA_COMUNIDAD-signed-signed-signed.pdf","note":"[VERSIÓN ANTERIOR/BORRADOR]"},{"n":"CERTIFICADO_DE_CONFORMIDAD_DE_LA_COMUNIDAD.docx (1)-signed-signed-signed.pdf","note":"[DUPLICADO]"},{"n":"CONVENIO BARRIOS DE QUITO.pdf","note":"[DUPLICADO]"},{"n":"CONVENIO INCLUSIÓN SOCIAL.pdf","note":"[DUPLICADO]"},{"n":"CONVENIO ISTEPS.pdf","note":"[DUPLICADO]"},{"n":"CONVENIO LADERAS DE PICHINCHA.pdf","note":"[DUPLICADO]"},{"n":"DDCopia de PERIODO 26-26(1).xlsx","note":"[DUPLICADO]"},{"n":"docenten prof","note":"Ayala H.pdf  [VERSIÓN ANTERIOR/BORRADOR]"},{"n":"docenten prof","note":"Jorge Luis Acanda.pdf  [VERSIÓN ANTERIOR/BORRADOR]"},{"n":"docenten prof","note":"Marcos Chinchilla Montes.pdf  [VERSIÓN ANTERIOR/BORRADOR]"},{"n":"docenten prof","note":"paola G.pdf  [VERSIÓN ANTERIOR/BORRADOR]"},{"n":"docenten prof Jenny.pdf","note":"[VERSIÓN ANTERIOR/BORRADOR]"},{"n":"docenten prof Juan Fernando Regalado Loaiza.pdf","note":"[VERSIÓN ANTERIOR/BORRADOR]"},{"n":"EVALUACIÓN1. FORMATO DE EVALUACIÓN PPP-FACULTAD(1).xlsx","note":"[VERSIÓN ANTERIOR/BORRADOR]"},{"n":"Extensiones de Plazo y Actualización de Aprobaciones UCE-FCSH-SA-2023-0090-O.pdf","note":"[DUPLICADO]"},{"n":"FORMATO_INFORME_AVANCE_TRIMESTRAL_FINAL_04-10-26(2)-signed-signed-signed-1-signed-signed.pdf","note":"[DUPLICADO]"},{"n":"INFORME_FINAL_PROYECTO_P6SOC08.docx (1)-signed-signed.pdf","note":"[DUPLICADO]"},{"n":"ingeniería informática práctica preprof.m4a","note":"[DUPLICADO]"},{"n":"PERIODO 26-27.xlsx","note":"[VERSIÓN ANTERIOR/BORRADOR]"},{"n":"PLANIFICACION ISTEPS.pdf","note":"[DUPLICADO]"},{"n":"PROFA ANDREA TAMAYOINFORME_FINAL_DEL_PROYECTO-signed-signed-signed-signed.pdf","note":"[DUPLICADO]"},{"n":"PROFA ANDREA TAMAYOINFORME_FINAL_DEL_PROYECTO-signed-signed-signed.pdf","note":"[VERSIÓN ANTERIOR/BORRADOR]"},{"n":"RESOLUCIÓN AGOSTO EDUCAC CONTINUAUCE-FCSH-SA-2026-0066-R-2.pdf","note":"[DUPLICADO]"},{"n":"RESOLUCIÓN EDUC CONTUCE-FCSH-DEC-2026-0063-R.pdf (id 1rt1cL…)","note":"[DUPLICADO]"},{"n":"RESPALDO JURIDCO CONTRA PARTE KITU KARA.pdf","note":"[DUPLICADO]"},{"n":"RESPALDO JURIDCO CONTRAPARTE PRODUCCION TECNICA KITU KARA.pdf","note":"[DUPLICADO]"},{"n":"RESPALDO JURIDICO CONTRAPARTE BARRIOS DE QUITO.pdf","note":"[DUPLICADO]"},{"n":"RESPALDO LEGAL CONTRAPARTE ISTEPS.pdf","note":"[DUPLICADO]"},{"n":"UCE-FCSH-CCP-2026-0307-O.pdf","note":"[DUPLICADO]"},{"n":"UCE-FCSH-CS-2023-0265-O.pdf","note":"[DUPLICADO]"},{"n":"UCE-FCSH-SA-2023-0055-O.pdf","note":"[DUPLICADO]"},{"n":"~$vantamiento Linea Base 23-23.docx","note":"[DUPLICADO]"}],"k":46}],"note":"","k":343};
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+/* reveal + counters */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('shown');io.unobserve(e.target)}}),{threshold:.12});
+$$('.rv').forEach(el=>io.observe(el));
+const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;co.unobserve(e.target);const el=e.target,t=+el.dataset.count,st=performance.now();(function f(n){const p=Math.min(1,(n-st)/1300);el.textContent=Math.round(t*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(st)}),{threshold:.5});
+$$('[data-count]').forEach(el=>co.observe(el));
+const bo=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;bo.unobserve(e.target);[...e.target.children].forEach(d=>d.style.flex=d.dataset.f)}),{threshold:.4});
+$$('.bar').forEach(b=>bo.observe(b));
+/* nav highlight */
+const secs=['inicio','hallazgos','estructura','nombres','falta','excel','siguiente'];
+addEventListener('scroll',()=>{let cur='inicio';secs.forEach(id=>{const el=document.getElementById(id);if(el.getBoundingClientRect().top<120)cur=id});$$('nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+cur))},{passive:true});
+/* donut */
+const TYPES=[['PDF',290,'#e04f5f'],['Excel',36,'#1fa463'],['Word',11,'#2457c5'],['Audio',2,'#7048e8'],['Fotos',2,'#f08c00'],['Presentación',1,'#e8590c'],['Texto',1,'#8b95ad']];
+(function(){const svg=$('#donut'),ul=$('#types');let off=25,tot=343,h='<circle cx="21" cy="21" r="15.915" fill="none" stroke="#eef1f7" stroke-width="6"/>';
+TYPES.forEach(([n,v,c],i)=>{const p=v/tot*100;h+=`<circle class="seg" data-i="${i}" cx="21" cy="21" r="15.915" fill="none" stroke="${c}" stroke-width="6" stroke-dasharray="${p} ${100-p}" stroke-dashoffset="${off}" style="transition:stroke-width .2s"/>`;off-=p;
+ul.insertAdjacentHTML('beforeend',`<li data-i="${i}"><i style="width:12px;height:12px;border-radius:4px;background:${c};display:inline-block"></i>${n}<b>${v}</b></li>`)});
+h+='<text x="21" y="20.5" text-anchor="middle" font-size="7" font-weight="800" fill="#14213d">343</text><text x="21" y="26" text-anchor="middle" font-size="3" fill="#5b6782">archivos</text>';svg.innerHTML=h;
+const hl=i=>{$$('#donut .seg').forEach(s=>s.setAttribute('stroke-width',s.dataset.i==i?8:6));$$('#types li').forEach(l=>l.classList.toggle('hl',l.dataset.i==i))};
+$$('#types li,#donut .seg').forEach(el=>{el.addEventListener('mouseenter',()=>hl(el.dataset.i));el.addEventListener('mouseleave',()=>hl(-1))})})();
+/* doc cards */
+const IC={doc:'<path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V9z"/><path d="M14 3v6h6"/>',stamp:'<path d="M9 3h6v6l3 4H6l3-4z"/><path d="M4 17h16v4H4z"/>',cal:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',map:'<path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/>',scale:'<path d="M12 3v18M5 7h14M7 7l-3 7a4 4 0 006 0zM17 7l-3 7a4 4 0 006 0z"/>',chart:'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',users:'<circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-4 3-6 7-6s7 2 7 6"/><path d="M16 4.5a3.5 3.5 0 010 7M18 14c2.5.6 4 2.6 4 6"/>',flag:'<path d="M5 21V4M5 4h11l-2 4 2 4H5"/>',hand:'<path d="M3 12l4-4 4 3 3-3 7 6-4 4-6-2-3 3z"/>',grid:'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/>',cap:'<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/>'};
+const svgI=k=>`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${IC[k]}</svg>`;
+const DOCS=[
+['stamp','Aprobaciones y oficios','Autorizan proyectos, cursos, extensiones y cierres.','Aprobacion UCE-FCSH-SA-2023-0055-O.pdf','#eaf1ff','#2457c5'],
+['doc','Planificaciones','Qué hará el proyecto en cada periodo.','PLANIFICACION BARRIOS DE QUITO CORREGIDA.pdf','#f0ebff','#7048e8'],
+['cal','Cronogramas','Fechas de actividades, por docente y periodo.','CRONOGRAMA GABRIELA DUQUE 23-24.pdf','#e7f6ee','#1fa463'],
+['map','Línea base','El diagnóstico de la comunidad antes de empezar.','LINEA BASE BIENESTAR FSCH.pdf','#fff4e0','#d9480f'],
+['scale','Respaldo legal de la contraparte','Documento de la organización aliada.','RESPALDO LEGAL CONTRAPARTE TELEMEDICINA.pdf','#fdecee','#c2253a'],
+['chart','Informes trimestrales','Avance del proyecto cada 3 meses, firmado.','PROFA GABRIELA DUQUE INFORME AVANCE EIWP julio sept 26-signed.pdf','#e6f4ff','#1971c2'],
+['users','Registros de participantes','Lista firmada de quienes participaron.','REGISTRO DE PARTICIPANTES OMAR BONILLA JUL-SEP 2024-signed.pdf','#f3f0ff','#5f3dc4'],
+['flag','Cierre','Acta de cierre, informe final y conformidad de la comunidad.','ACTA_DEL_CIERRE_DEL_PROYECTOscsm-signed-signed.pdf','#e7f6ee','#0f7a45'],
+['hand','Convenios','Acuerdos firmados con instituciones aliadas.','CONVENIO OBSERVATORIO DE DERECHOS HUMANOS.pdf','#fff9db','#b08800'],
+['grid','Excel de control','Códigos de proyecto, coordinadores y docentes, matriz de convenios.','códigos de los proyectos y programa al que pertenecen.xls','#e7f6ee','#1fa463'],
+['cap','Educación continua','Diseño de cursos, formato y reglamento.','formato para eduación continua.xls','#eaf1ff','#2457c5']];
+$('#doccards').innerHTML=DOCS.map(([i,t,d,ex,b,f])=>`<div class="dc rv" style="--bgc:${b};--fc:${f}"><span class="plus">+</span><div class="ic">${svgI(i)}</div><h4>${t}</h4><p>${d}</p><div class="ex">Ejemplo real:<code>${ex}</code></div></div>`).join('');
+$$('.dc').forEach(c=>{io.observe(c);c.onclick=()=>c.classList.toggle('open')});
+/* TREE */
+const DESC={'00_NORMATIVA_Y_FORMATOS':'Reglamentos, manuales y formatos para todos','01_VINCULACION_CON_LA_SOCIEDAD':'Proyectos, prácticas, educación continua, convenios','02_SEGUIMIENTO_A_GRADUADOS':'Pedida por la doctora','03_BIENESTAR_UNIVERSITARIO':'Documentos propios de Bienestar','04_GESTION_Y_FINANCIERO':'Informes de gestión, resoluciones y oficios','05_PRACTICANTES_DEL_SUBDECANATO':'Material de las reuniones de prácticas','01_Proyectos_comunitarios':'Por estado → carrera → proyecto','00_Listados_y_matrices_por_periodo':'Las matrices oficiales de cada periodo','01_Vigentes':'Proyectos activos, por carrera','02_Nuevos_sin_codigo':'Aprobados, aún sin código','03_Cerrados':'Con acta de cierre','04_Consolidado_de_cierres':'Resumen de cierres','05_Proyectos_de_periodos_anteriores_estado_por_confirmar':'Sin acta de cierre: hay que confirmar','02_Practicas_preprofesionales':'Por periodo y carrera','03_Educacion_continua':'Por periodo y por curso','04_Convenios':'Base de datos, matriz y PDF firmados','05_Carga_horaria_docente':'Por periodo','01_Diseno_y_aprobacion':'Planificación, cronograma, línea base, respaldo legal','02_Informes_trimestrales':'Por trimestre','03_Cierre':'Acta, informe final, conformidad'};
+const FI={pdf:['PDF','#e04f5f'],xlsx:['XLS','#1fa463'],xls:['XLS','#1fa463'],xlsm:['XLS','#1fa463'],docx:['DOC','#2457c5'],doc:['DOC','#2457c5'],m4a:['AUD','#7048e8'],jpeg:['IMG','#f08c00'],pptx:['PPT','#e8590c'],txt:['TXT','#8b95ad']};
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&','<':'<','>':'>','"':'"'}[c]));
+function ext(n){const m=n.toLowerCase().match(/\.(pdf|xlsx|xls|xlsm|docx|doc|m4a|jpeg|pptx|txt)\b/g);return m?m[m.length-1].slice(1):'pdf'}
+function build(node,depth){
+ const li=document.createElement('li');li._n=node;
+ const isDir=!!node.c;const note=node.note||'';
+ let badge='';
+ if(isDir){const k=node.k||0;badge=`<span class="k ${k?'':'zero'}">${k?k:'vacía'}</span>`}
+ else{if(/\[(DUPLICADO|VERSIÓN ANTERIOR\/BORRADOR)\]/.test(note))badge='<span class="dup">COPIA</span>';else if(/\[!\]|\[REVISAR/.test(note))badge='<span class="warn">!</span>'}
+ const fi=isDir?`<svg class="fi" width="18" height="18" viewBox="0 0 24 24"><path d="M3 6a2 2 0 012-2h4l2 2h8a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2z" fill="${depth<2?'#f5b82e':'#5aa2ff'}"/></svg>`:(()=>{const[t,c]=FI[ext(node.n)]||['FILE','#8b95ad'];return `<span class="fi" style="font-size:9.5px;font-weight:800;color:#fff;background:${c};border-radius:4px;padding:2px 4px;letter-spacing:.3px">${t}</span>`})();
+ const d=isDir&&DESC[node.n]?`<span class="desc">${DESC[node.n]}</span>`:'';
+ li.innerHTML=`<div class="row ${isDir?'dir':'file'}">${isDir?'<span class="car">▶</span>':'<span class="car"></span>'}${fi}<span class="nm">${esc(node.n)}</span>${d}${badge}</div>`+(note?`<div class="nt">${esc(note.replace(/^\[!\]\s*/,'').replace(/^\((.*)\)$/,'$1'))}</div>`:'');
+ if(isDir){const ul=document.createElement('ul');li.appendChild(ul);li._built=false;li._depth=depth}
+ li.firstChild.onclick=()=>{if(isDir){ensure(li);li.classList.toggle('open');if(note)li.classList.toggle('shownote',li.classList.contains('open'))}else if(note)li.classList.toggle('shownote')};
+ return li}
+function ensure(li){if(li._built)return;li._built=true;const ul=li.querySelector(':scope>ul');li._n.c.forEach(ch=>ul.appendChild(build(ch,li._depth+1)))}
+const rootUl=document.createElement('ul');const rootLi=build(TREE,0);rootUl.appendChild(rootLi);$('#tree').appendChild(rootUl);ensure(rootLi);rootLi.classList.add('open');
+function openPath(names){let li=rootLi;for(const nm of names){ensure(li);li.classList.add('open');li=[...li.querySelector(':scope>ul').children].find(x=>x._n.n===nm);if(!li)return}ensure(li);li.classList.add('open');return li}
+function allLis(li,acc=[]){acc.push(li);if(li._n.c){ensure(li);[...li.querySelector(':scope>ul').children].forEach(c=>allLis(c,acc))}return acc}
+openPath(['01_VINCULACION_CON_LA_SOCIEDAD']);
+$('#exp1').onclick=()=>{$('#q').value='';doSearch();const v=openPath(['01_VINCULACION_CON_LA_SOCIEDAD','01_Proyectos_comunitarios','01_Vigentes']);[...v.querySelector(':scope>ul').children].forEach(c=>{ensure(c);c.classList.add('open')});v.scrollIntoView({block:'start',behavior:'smooth'})};
+$('#expall').onclick=()=>{$('#q').value='';doSearch();allLis(rootLi).forEach(l=>l._n.c&&l.classList.add('open'))};
+$('#colall').onclick=()=>{$('#q').value='';doSearch();allLis(rootLi).forEach(l=>l.classList.remove('open','shownote'));rootLi.classList.add('open')};
+const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[_\-]/g,' ');
+let tmr;$('#q').addEventListener('input',()=>{clearTimeout(tmr);tmr=setTimeout(doSearch,180)});
+function doSearch(){const q=norm($('#q').value.trim());const lis=allLis(rootLi);
+ lis.forEach(l=>{l.classList.remove('hide');const nm=l.querySelector(':scope>.row .nm');nm.innerHTML=esc(l._n.n)});
+ if(!q){$('#qinfo').textContent='';return}
+ let hits=0;
+ (function walk(li){const self=norm(li._n.n).includes(q);let any=false;
+  if(li._n.c){[...li.querySelector(':scope>ul').children].forEach(c=>{if(walk(c))any=true})}
+  const show=self||any;li.classList.toggle('hide',!show);if(any)li.classList.add('open');
+  if(self){hits++;const nm=li.querySelector(':scope>.row .nm');const raw=li._n.n;const nr=norm(raw);const i=nr.indexOf(q);if(i>=0)nm.innerHTML=esc(raw.slice(0,i))+'<mark>'+esc(raw.slice(i,i+q.length))+'</mark>'+esc(raw.slice(i+q.length))}
+  return show})(rootLi);
+ rootLi.classList.remove('hide');$('#qinfo').textContent=hits?hits+' resultado'+(hits>1?'s':''):'Sin resultados'}
+/* NAME GENERATOR */
+const PJ=['BarriosDMQ','KituKara','SeguridadDigital','ObservatorioDDHH','WinenaniPikenani','ColeccionFilosofica','BienestarFCSH','LaderasPichincha','CulturaCivica','EstadoPunitivo'];
+const DT=['Aprobacion','Planificacion','Cronograma','LineaBase','RespaldoLegal','InformeTrimestral','RegistroParticipantes','ActaCierre','InformeFinal'];
+const PT=['23-23','23-24','24-25','25-25','26-26','26-27','2024-jul-sep','2026-jul-sep'];
+const fill=(s,a,def)=>{s.innerHTML=a.map(x=>`<option${x===def?' selected':''}>${x}</option>`).join('')};
+fill($('#gp'),PJ,'KituKara');fill($('#gd'),DT,'Aprobacion');fill($('#gt'),PT,'24-25');
+const upd=()=>{$('#fname').innerHTML=`<span style="color:#9cc3ff">${$('#gp').value}</span>_<span style="color:#c4b5fd">${$('#gd').value}</span>_<span style="color:#86efac">${$('#gt').value}</span>_<span style="color:#fdba74">${$('#gv').value}</span>.pdf`};
+['#gp','#gd','#gt','#gv'].forEach(s=>$(s).onchange=upd);upd();
+/* ALERTS */
+const AI={code:'<path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/>',cal:IC.cal,flag:IC.flag,cap:IC.cap,clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',hand:IC.hand,new:'<path d="M12 5v14M5 12h14"/>',heart:'<path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 00-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 000-7.8z"/>',db:'<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>'};
+const Q=['jul-sep 24','oct-dic 24','ene-mar 25','abr-jun 25','jul-sep 25','oct-dic 25','ene-mar 26','abr-jun 26','jul-sep 26'];
+const ALERTS=[
+{c:'#e04f5f',b:'#fdecee',i:'cal',big:'2 de 9',t:'Informes trimestrales: solo hay 2 trimestres',p:'Jul-sep 2024 (12 proyectos) y jul-sep 2026 (16 de 17). De oct-2024 a jun-2026 no se recibió ninguno.',x:'<div class="qline">'+Q.map((q,i)=>`<div class="q ${i==0||i==8?'y':'n'}">${q}</div>`).join('')+'</div>',more:'<ul><li>Bienestar de la FCSH (P1SOC11) no tiene ningún informe trimestral.</li><li>Sin informe jul-sep 2024 aunque tienen documentos 24-25: Bienestar, Laboratorio ESS y Producción técnica Kitu Kara (por confirmar). Barrios y Laderas eran nuevos en sep 2024.</li></ul>'},
+{c:'#7048e8',b:'#f0ebff',i:'code',big:'5',t:'Los códigos de proyecto cambian entre periodos',p:'El mismo código es otro proyecto en 24-25 y en 26-26.',x:'<div class="code-swap"><div class="pill" style="background:#f0ebff;color:#5f3dc4"><small>24-25</small>P9SOC05 Kitu Kara</div><b style="color:#7048e8">→</b><div class="pill" style="background:#7048e8;color:#fff"><small>26-26</small>P9SOC05 Barrios DMQ</div></div>',more:'Códigos reutilizados: P9SOC05, P2SOC02, P2SOC03, P2SOC04 y P9SOC04. Además, la lista de códigos 24-25 no trae 5 proyectos que sí tienen documentos 24-25. <b>Solución:</b> carpetas por nombre del proyecto.'},
+{c:'#f08c00',b:'#fff4e0',i:'flag',big:'9',t:'Proyectos antiguos sin estado de cierre',p:'Son de 23-23 / 24-25, no están en la lista 26-26 y no tienen acta de cierre.',more:'<ul><li>Laboratorio de Políticas Públicas</li><li>Historia y Memoria Obrera</li><li>Comunicación intercultural</li><li>Barrios DMQ 2019-2023</li><li>Inclusión Social DMQ</li><li>Kitu Kara tejido comunitario</li><li>Telemedicina</li><li>Hato Pucará</li><li>Servicio especializado ISTEPS</li></ul>Van a «05_Proyectos_de_periodos_anteriores_estado_por_confirmar». No se los llama «cerrados» porque no hay documento que lo diga.'},
+{c:'#d6336c',b:'#ffe3ec',i:'cap',big:'13',t:'Educación continua 23-23 y 23-24 sin informes ni cierre',p:'13 cursos tienen diseño, pero ningún informe ni cierre.',more:'En 11 de esos diseños en Excel el nombre del evento dice solo «Educación Continua». En los cursos 26-27, la columna de aprobación dice «TENGO EN WHATS» en las 5 filas. El instructivo de educación continua tiene el mismo texto que el reglamento: falta el instructivo real.'},
+{c:'#e04f5f',b:'#fdecee',i:'clock',big:'27/01/2025',t:'Convenio vencido con proyecto activo',p:'El convenio con el Centro de Autonomía Digital venció, y su proyecto «Seguridad y autonomía digital» sigue en la lista 26-26.',more:'Código del convenio: FCSH-CONV-023. Además, el consolidado de cierres marca este proyecto como «PENDIENTE DE CIERRE» (fin 1/3/2026). Otros vencidos en la matriz: Galo Plaza, Planned Parenthood, Santa Clara de San Millán y Secretaría de Inclusión Social.'},
+{c:'#1971c2',b:'#e6f4ff',i:'hand',big:'5 de 13',t:'Los convenios en PDF y la matriz no coinciden',p:'Solo 5 PDF coinciden con la matriz de convenios.',x:'<div class="vs"><div style="background:#e6f4ff;color:#1971c2"><b>17</b>PDF de convenios</div><div style="background:#e7f6ee;color:#0f7a45"><b>5</b>coinciden</div><div style="background:#fdecee;color:#c2253a"><b>8</b>de la matriz sin PDF</div><div style="background:#fff4e0;color:#a35b00"><b>12</b>PDF fuera de la matriz</div></div>',more:'La numeración de los PDF no coincide con el N° UCE de la matriz (p. ej. Federación de Barrios es N° 31 en la matriz y «43.» en el PDF). El informe de gestión habla de «14» y «22» convenios: hay que cuadrar.'},
+{c:'#0ca678',b:'#e6fcf5',i:'new',big:'8',t:'Proyectos nuevos aprobados sin carpeta',p:'La Res. 0062 aprueba 8 diseños de proyectos nuevos, pero no hay diseños, carpetas ni códigos.',more:'UNORICO, Instituto de la Democracia, Federación de Barrios, Kitu Kara, Casa de la Cultura, estado punitivo, Fundación Filosófica e IPGH. Tampoco están en SharePoint.'},
+{c:'#5f3dc4',b:'#f3f0ff',i:'heart',big:'P1SOC11',t:'Bienestar de la FCSH: falta seguimiento',p:'Tiene diseño 24-25 completo, pero ningún informe trimestral y no aparece en la lista oficial 26-26.',more:'Sí tiene: planificación corregida firmada, línea base, presupuesto, cronograma y convenio. En la hoja 25-25 validada por la DVS, su cronograma dice «FALTA».'},
+{c:'#495057',b:'#f1f3f5',i:'db',big:'473 MB',t:'La base de datos de convenios no se pudo abrir',p:'El Excel «BASE DE DATOS DE CONVENIOS FCSH» pesa 473 MB, algo muy anormal.',more:'Se necesita una copia limpia o exportada a .xlsx para cruzarla con la matriz y los PDF.'}];
+$('#alerts').innerHTML=ALERTS.map(a=>`<div class="al rv" style="--c:${a.c};--bgc:${a.b}"><div class="top"><div class="ic">${svgI(a.i in IC?a.i:'doc').replace(/<svg([^>]*)>.*<\/svg>/,`<svg$1>${AI[a.i]}</svg>`)}</div><div class="big">${a.big}</div></div><h4>${a.t}</h4><p>${a.p}</p>${a.x||''}<div class="more">${a.more}</div><div class="hint">Ver detalle +</div></div>`).join('');
+$$('.al').forEach(c=>{io.observe(c);c.onclick=()=>c.classList.toggle('open')});
+/* MASTER TABLE */
+const Y='y',N='n',W='w',NA='na';
+const ROWS=[
+['Seguridad y autonomía digital','P8SOC05 · Sociología','v',['23-23','23-24','24-25'],[Y,Y,Y,Y,[W,'Hay convenio, pero venció el 27/01/2025'],Y,Y,[W,'Pendiente de cierre según el consolidado (fin 1/3/2026)']]],
+['Colección Filosófica','P8SOC06 · Sociología','v',['23-23','23-24','24-25'],[Y,Y,Y,Y,Y,Y,Y,NA]],
+['Observatorio de Derechos Humanos','P2SOC02 · Ciencias Políticas','v',['23-24','24-25'],[Y,Y,N,Y,Y,Y,Y,NA]],
+['Escuela Wiñenani-Pikenani','P9SOC02 · Trabajo Social','v',['23-23','23-24','24-25'],[Y,Y,N,Y,Y,Y,Y,NA]],
+['Barrios DMQ 2024-2029','P9SOC05 · Trabajo Social','v',['24-25'],[Y,Y,Y,[W,'Hay, pero es copia idéntica de la de Laderas'],Y,[NA,'Proyecto nuevo aprobado en sep 2024'],Y,NA]],
+['Producción de información técnica Kitu Kara','P9SOC06 · Sociología','v',['24-25'],[Y,Y,Y,[W,'Hay, pero es copia idéntica de la de Kitu Kara tejido comunitario'],Y,[N,'Por confirmar'],Y,NA]],
+['Bienestar de la FCSH','P1SOC11 (25-25) · Trabajo Social','v',['24-25'],[Y,Y,Y,N,Y,N,N,NA]],
+['Laboratorio de Economía Social y Solidaria','P6SOC08 · cerrado (Res. 0085)','c',['24-25'],[Y,Y,Y,Y,Y,[N,'Por confirmar'],[W,'Hay, pero estaba dentro de «cierre de proyecto»'],Y]],
+['Escuela DDHH y Género','P2SOC04 · cerrado (Res. 0085)','c',[],[N,N,N,N,N,[N,'No está entre los 12 informes jul-sep 2024'],Y,Y]],
+['Kitu Kara tejido comunitario','P9SOC05 en 24-25','p',['23-23','23-24','24-25'],[Y,Y,Y,Y,Y,Y,N,[N,'Sin acta de cierre']]],
+['Diagnóstico social Hato Pucará','P3SOC20 en 24-25','p',['23-24','24-25'],[Y,Y,N,Y,Y,Y,N,[N,'Sin acta de cierre']]],
+['Sistema Electoral','P2SOC01 · Ciencias Políticas','v',[],[N,N,N,N,N,[N,'No está entre los 12 informes jul-sep 2024'],Y,NA]]];
+const SL={v:['Vigente','v'],c:['Cerrado','c'],p:['Por confirmar','p']};
+const sym={y:'✓',n:'✕',w:'!',na:'—'};
+$('#mt tbody').innerHTML=ROWS.map(([n,m,s,per,cells])=>{const miss=cells.some(c=>(Array.isArray(c)?c[0]:c)!=='y'&&(Array.isArray(c)?c[0]:c)!=='na');
+ return `<tr data-s="${s}" data-miss="${miss?1:0}"><td><span class="pc">${n}</span><span class="pm">${m}</span></td><td><span class="st ${SL[s][1]}">${SL[s][0]}</span></td><td>${per.length?per.map(p=>`<span class="per">${p}</span>`).join(''):'<span class="pm">—</span>'}</td>`+cells.map(c=>{const[k,t]=Array.isArray(c)?c:[c,''];return `<td><span class="cell ${k}"${t?` data-t="${t}"`:''}>${sym[k]}</span></td>`}).join('')+'</tr>'}).join('');
+$$('#filters button').forEach(b=>b.onclick=()=>{$$('#filters button').forEach(x=>x.classList.toggle('on',x===b));const f=b.dataset.f;$$('#mt tbody tr').forEach(tr=>{tr.style.display=(f==='all'||tr.dataset.s===f||(f==='miss'&&tr.dataset.miss==='1'))?'':'none'})});
+</script>
+</body>
+</html>
